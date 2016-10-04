@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="initial-scale=1.25, user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <title>Profile</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous" />
+    <link href="../css/style.css" rel="stylesheet"/>
+</head>
+<body>
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">
+                Profile
+            </a>
+            <p class="navbar-text pull-right">
+                <a href="profile.html" class="navbar-link">
+                      <span class="glyphicon glyphicon-ok">
+                      </span>
+                </a>
+            </p>
+        </div>
+    </div>
+</nav>
+<div class="container">
+
+    <form class="form-horizontal">
+        <h2>Profile</h2>
+        <div class="form-group">
+            <label for="inputUsername"
+                   class="col-md-2 control-label">Username</label>
+            <div class="col-md-10">
+                <input type="text"
+                       id="inputUsername"
+                       name="username"
+                       class="form-control"
+                       placeholder="e.g. Hounan"
+                       value="zhao.hao"
+                       required
+                       autofocus>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputEmail"
+                   class="col-md-2 control-label">E-mail</label>
+            <div class="col-md-10">
+                <input type="email"
+                       id="inputEmail"
+                       name="email"
+                       class="form-control"
+                       placeholder="e.g. zhao.haoh@husky.neu.edu"
+                       value="zhao.hao@husky.neu.edu" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputFirstName"
+                   class="col-md-2 control-label">First Name</label>
+            <div class="col-md-10">
+                <input type="text"
+                       id="inputFirstName"
+                       name="firstName"
+                       class="form-control"
+                       value="Haonan"
+                       placeholder="e.g Hao"
+                       required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputLastName"
+                   class="col-sm-2 control-label">Last Name</label>
+            <div class="col-md-10">
+                <input type="text"
+                       id="inputLastName"
+                       name="lastName"
+                       class="form-control"
+                       value="Zhao"
+                       placeholder="e.g Zhao"
+                       required></div>
+        </div>
+        <a href="../website/website-list.html"
+           role="button"
+           class="btn btn-md btn-primary btn-block">Websites</a>
+        <a href="login.html"
+           role="button"
+           class="btn btn-md btn-danger btn-block">Logout</a>
+    </form>
+
+</div>
+<footer class="navbar navbar-default navbar-fixed-bottom">
+    <div class="container">
+        <p class="navbar-text pull-right"><a href="/assignment2/userpage/profile.html">
+            <span class="glyphicon glyphicon-user"></span>
+        </a></p>
+    </div>
+</footer>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+</body>
+</html>
