@@ -1,123 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="initial-scale=1.25, user-scalable=no" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-    <title>Widgets</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous" />
-    <link href="../css/style.css" rel="stylesheet"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Widget List</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/style.css"/>
 </head>
 <body>
+
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
-
-            <p class="navbar-text pull-left">
-                <a href="../pages/page-list.html" class="navbar-link">
-                  <span class="glyphicon glyphicon-chevron-left">
-                  </span>
-                </a>
-            </p>
-
-            <p class="navbar-text pull-right">
-                <a href="widget-chooser.html" class="navbar-link">
-                  <span class="glyphicon glyphicon-plus">
-                  </span>
-                </a>
-            </p>
+        <p class="navbar-text pull-right">
+            <a class="navbar-link" href="widget-choose.html">
+                <span class="glyphicon glyphicon-plus"></span>
+            </a>
+        </p>
+        <p class="navbar-text pull-left">
+            <a class="navbar-link" href="../page/page-list.html">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+            </a>
+        </p>
         <div class="navbar-header">
-            <a class="navbar-brand" href="#">
-                Widgets
+            <a class="navbar-brand">Widgets</a>
+        </div>
+    </div>
+</nav>
+
+<div class="container-fluid headerPadding footerPadding">
+
+    <div class="list-group">
+
+        <div class="relative-position">
+            <div class="absolute-position widget-overlay">
+                <a href="widget-heading.html"><span class="glyphicon glyphicon-cog"></span></a>
+                <span class="glyphicon glyphicon-align-justify"></span>
+            </div>
+            <h1>News</h1>
+        </div>
+
+        <div class="relative-position">
+            <div class="absolute-position widget-overlay">
+                <a href="widget-heading.html"><span class="glyphicon glyphicon-cog"></span></a>
+                <span class="glyphicon glyphicon-align-justify"></span>
+            </div>
+            <h2>US Senate Reaches Compromise on Emergency Zika Funding</h2>
+        </div>
+
+        <div class="relative-position">
+            <img src="https://cdn.passporthealthusa.com/wp-content/uploads/2014/10/mosquito-on-skin.jpg?127b2a"
+                 class="img-responsive center-block">
+            <div class="absolute-position widget-overlay">
+                <a href="widget-image.html"><span class="glyphicon glyphicon-cog"></span></a>
+                <span class="glyphicon glyphicon-align-justify"></span>
+            </div>
+        </div>
+
+        <div class="relative-position">
+            <div class="absolute-position widget-overlay widget-spacing">
+                <a href="widget-heading.html"><span class="glyphicon glyphicon-cog"></span></a>
+                <span class="glyphicon glyphicon-align-justify"></span>
+            </div>
+            <p class="widget-spacing">In February, the <a
+                    href="http://gizmodo.com/white-house-wants-1-8-billion-to-fight-zika-1757772335">White House
+                formally asked Congress for $1.8 billion</a>dollars to help combat the Zika virus this summer. Now, the
+                Senate has worked out a bipartisan deal will allocate $1.1 billion in emergency funding.</p>
+        </div>
+
+        <div class="relative-position">
+            <div class="absolute-position widget-overlay">
+                <a href="widget-heading.html"><span class="glyphicon glyphicon-cog"></span></a>
+                <span class="glyphicon glyphicon-align-justify"></span>
+            </div>
+            <h2>Man in Wingsuit Flies Straight Through Ring of Fire</h2>
+        </div>
+
+        <div class="relative-position embed-responsive embed-responsive-4by3">
+            <div class="absolute-position widget-overlay">
+                <a href="widget-youtube.html"><span class="glyphicon glyphicon-cog"></span></a>
+                <span class="glyphicon glyphicon-align-justify"></span>
+            </div>
+            <iframe src="https://www.youtube.com/embed/uLWLashCXHE" frameborder="0" allowfullscreen></iframe>
+        </div>
+
+
+        <div class="relative-position">
+            <div class="absolute-position widget-overlay widget-spacing">
+                <a href="widget-heading.html"><span class="glyphicon glyphicon-cog"></span></a>
+                <span class="glyphicon glyphicon-align-justify"></span>
+            </div>
+            <p class="widget-spacing">Flying in a wingsuit? That’s just not enough anymore. Anyone could do that (I
+                would never do that). You have to make it more extreme, like by hitting a target while you’re cutting
+                through the air at crazy speeds. Or by making that target a small ring that you have to somehow fly
+                through. Or by lighting that ring on fire. Or by... actually, that should be extreme enough for now.</p>
+        </div>
+
+    </div>
+</div>
+
+<nav class="navbar navbar-default navbar-fixed-bottom">
+    <div class="container-fluid">
+        <div class="navbar-text pull-right">
+            <a class="navbar-link" href="../user/profile.html">
+                <span class="glyphicon glyphicon-user"></span>
             </a>
         </div>
     </div>
 </nav>
 
-<div class="container" style="margin-top: 70px;">
-    <li>
-        <div class="haonan-widget-tool pull-right">
-            <a href="widget-heading.html">
-                <span class="glyphicon glyphicon-cog"></span>
-            </a>
-            <span class="glyphicon glyphicon-align-justify"></span>
-        </div>
-        <h1>Hunan's Blog..</h1>
-    </li>
-
-    <li>
-        <div class="haonan-widget-tool pull-right">
-            <a href="widget-heading.html">
-                <span class="glyphicon glyphicon-cog"></span>
-            </a>
-            <span class="glyphicon glyphicon-align-justify"></span>
-        </div>
-        <h4>This homework is not easy!!!!</h4>
-    </li>
-
-    <li>
-        <div class="haonan-widget-tool pull-right">
-            <a href="widget-image.html">
-                <span class="glyphicon glyphicon-cog"></span>
-            </a>
-            <span class="glyphicon glyphicon-align-justify"></span>
-        </div>
-        <img width="100%" src="http://s3-us-west-2.amazonaws.com/hypebeast-wordpress/image/2014/08/20140826-Supreme-or-Bape-Teaser.jpg"/>
-    </li>
-
-    <li>
-        <div class="haonan-widget-tool pull-right">
-            <a href="widget-heading.html">
-                <span class="glyphicon glyphicon-cog"></span>
-            </a>
-            <span class="glyphicon glyphicon-align-justify"></span>
-        </div>
-        <p class="first-text">Please click the tex to view the page
-            <em>PAGE PAGE PAGE</em>
-            PLEASE CLICK
-            <a href="http://www.brainyquote.com/quotes/keywords/dummy.html"
-               rel="noopener"
-               target="_blank">
-                ME</a>.</p>
-    </li>
-
-    <li>
-        <div class="haonan-widget-tool pull-right">
-            <a href="widget-heading.html">
-                <span class="glyphicon glyphicon-cog"></span>
-            </a>
-            <span class="glyphicon glyphicon-align-justify"></span>
-        </div>
-        <h4>Here is the video</h4>
-    </li>
-
-    <li>
-        <div class="haonan-widget-tool pull-right">
-            <a href="widget-youtube.html">
-                <span class="glyphicon glyphicon-cog"></span>
-            </a>
-            <span class="glyphicon glyphicon-align-justify"></span>
-        </div>
-        <iframe width="100%" src="https://www.youtube.com/embed/6LJWDY_OW6g"
-                frameborder="0" allowfullscreen>
-
-        </iframe>
-    </li>
-
-</div>
-
-<footer class="navbar navbar-default navbar-fixed-bottom">
-    <div class="container">
-        <p class="navbar-text pull-right"><a href="../userpage/profile.html">
-            <span class="glyphicon glyphicon-user"></span>
-        </a></p>
-    </div>
-</footer>
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 </body>
 </html>

@@ -1,0 +1,63 @@
+.navbar-default {
+    background-color: #337ab7;
+}
+
+.navbar-default .navbar-brand {
+    color: #ffffff;
+}
+
+.navbar-default .navbar-link {
+    color: #ffffff;
+}
+
+.headerPadding {
+    padding-top: 30px;
+}
+
+.footerPadding {
+    padding-bottom: 50px;
+}
+
+body {
+    padding-top: 30px;
+}
+
+input.form-control {
+    margin-bottom: 5px;
+}
+
+.list-group-item {
+    border: 0px;
+}
+
+.vertical-divider {
+    left:33%;
+    width:1px;
+    top: 0;
+    bottom: 0;
+    position: fixed;
+    background-color: slategray;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+.widget-spacing {
+    padding-top: 15px;
+}
+
+.relative-position {
+    position: relative;
+}
+
+.absolute-position {
+    position: absolute;
+}
+
+.widget-overlay {
+    top: 0px;
+    right: 0px;
+    z-index: 100;
+    background-color: white;
+}

@@ -1,92 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="initial-scale=1.25, user-scalable=no" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-    <title>Widget Edit: YouTube</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous" />
-    <link href="../css/style.css" rel="stylesheet"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Widget Youtube</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/style.css"/>
 </head>
 <body>
+
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
-            <p class="navbar-text pull-left">
-                <a href="widget-list.html" class="navbar-link">
-                  <span class="glyphicon glyphicon-chevron-left">
-                  </span>
-                </a>
-            </p>
-
-            <p class="navbar-text pull-right">
-                <a href="widget-list.html" class="navbar-link">
-                  <span class="glyphicon glyphicon-ok">
-                  </span>
-                </a>
-            </p>
-        <div class="navbar-header">
-            <a class="navbar-brand" href="#">
-                Widget Edit
+        <p class="navbar-text pull-right">
+            <a class="navbar-link" href="widget-list.html">
+                <span class="glyphicon glyphicon-ok"></span>
             </a>
+        </p>
+        <p class="navbar-text pull-left">
+            <a class="navbar-link" href="widget-list.html">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+            </a>
+        </p>
+        <div class="navbar-header">
+            <a class="navbar-brand">Widget Edit</a>
         </div>
-
     </div>
 </nav>
-<div class="container" style="
-    margin-top: 70px;
-">
 
+<div class="container-fluid headerPadding footerPadding">
     <form>
         <div class="form-group">
-            <label for="youtube-name">Name</label>
-            <input type="text"
-                   class="form-control"
-                   id="youtube-name"
-                   value="video"
-                   placeholder="e.g. video">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" id="name">
         </div>
         <div class="form-group">
-            <label for="youtube-text">Text</label>
-            <input type="text"
-                   class="form-control"
-                   id="youtube-text"
-                   value="US Senate Reaches Compromise on..."
-                   placeholder="e.g. US Senate Reaches Compromise on...">
+            <label for="text">Text</label>
+            <input type="text" class="form-control" id="text">
         </div>
         <div class="form-group">
-            <label for="youtube-url">URL</label>
-            <input type="text"
-                   class="form-control"
-                   id="youtube-url"
-                   value="https://www.youtube.com/efsdfOW6g"
-                   placeholder="URL of the video">
+            <label for="url">URL</label>
+            <input type="url" class="form-control" id="url" value="https://youtu.be/uLWLashCXHE">
         </div>
         <div class="form-group">
-            <label for="youtube-width">Width</label>
-            <input type="text"
-                   class="form-control"
-                   id="youtube-width"
-                   value="100%"
-                   placeholder="e.g. 100%">
+            <label for="width">Width</label>
+            <input type="number" class="form-control" id="width">
         </div>
+        <a class="btn btn-danger btn-block" href="widget-list.html">Delete</a>
     </form>
-    <a class="btn btn-danger  btn-block"
-       href="widget-list.html">Delete</a>
 </div>
 
-<footer class="navbar navbar-default navbar-fixed-bottom">
-    <div class="container">
-        <p class="navbar-text pull-right"><a href="../userpage/profile.html">
-            <span class="glyphicon glyphicon-user"></span>
-        </a></p>
+<nav class="navbar navbar-default navbar-fixed-bottom">
+    <div class="container-fluid">
+        <div class="navbar-text pull-right">
+            <a class="navbar-link" href="../user/profile.html">
+                <span class="glyphicon glyphicon-user"></span>
+            </a>
+        </div>
     </div>
-</footer>
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+</nav>
+
 </body>
 </html>
