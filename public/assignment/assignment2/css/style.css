@@ -1,7 +1,13 @@
 .navbar-default {
     background-color: #337ab7;
 }
+.navbar-fixed-bottom {
+    background-color: #337ab7;
+}
 
+h1.superme{
+    color: olivedrab;
+}
 .navbar-default .navbar-brand {
     color: #ffffff;
 }
@@ -19,7 +25,7 @@
 }
 
 body {
-    padding-top: 30px;
+    padding-top: 40px;
 }
 
 input.form-control {
