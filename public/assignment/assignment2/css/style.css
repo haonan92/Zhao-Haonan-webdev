@@ -16,7 +16,7 @@ h1.superme{
     color: #ffffff;
 }
 
-.headerPadding {
+.contentPadding {
     padding-top: 30px;
 }
 
@@ -33,7 +33,7 @@ input.form-control {
 }
 
 .list-group-item {
-    border: 0px;
+    border: 1px;
 }
 
 .vertical-divider {
