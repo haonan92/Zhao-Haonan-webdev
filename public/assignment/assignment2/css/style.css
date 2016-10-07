@@ -5,27 +5,21 @@
     background-color: #337ab7;
 }
 
-h1.superme{
-    color: olivedrab;
-}
 .navbar-default .navbar-brand {
-    color: #ffffff;
+    color: white;
 }
 
 .navbar-default .navbar-link {
-    color: #ffffff;
+    color: white;
 }
 
 .contentPadding {
     padding-top: 30px;
 }
 
-.footerPadding {
-    padding-bottom: 50px;
-}
-
 body {
     padding-top: 40px;
+    padding-bottom: 56px;
 }
 
 input.form-control {
@@ -36,21 +30,16 @@ input.form-control {
     border: 1px;
 }
 
-.vertical-divider {
+.page-divider {
     left:33%;
     width:1px;
     top: 0;
     bottom: 0;
     position: fixed;
-    background-color: slategray;
+    background-color: #337ab7;
 }
-
-a:link {
-    text-decoration: none;
-}
-
-.widget-spacing {
-    padding-top: 15px;
+.section-space {
+    padding-top: 5px;
 }
 
 .relative-position {
@@ -66,4 +55,8 @@ a:link {
     right: 0px;
     z-index: 100;
     background-color: white;
+}
+
+h1.superme{
+    color: olivedrab;
 }
