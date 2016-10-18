@@ -25,13 +25,14 @@
                 controller: "WebsiteListController",
                 controllerAs: "model"
             })
+            .when("/user/:uid/website/new", {
+                templateUrl: "views/website/website-new.view.client.html"
+            })
+
             .when("/user/:uid/website/:wid", {
                 templateUrl: "views/website/website-edit.view.client.html",
                 controller: "WebsiteEditController",
                 controllerAs: "model"
-            })
-            .when("/user/:uid/website/new", {
-                templateUrl: "views/website/website-new.view.client.html"
             })
             .otherwise({
                 redirectTo:"/login"
