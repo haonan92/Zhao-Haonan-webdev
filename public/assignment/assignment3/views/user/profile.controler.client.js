@@ -14,8 +14,7 @@
         var user = UserService.findUserById(userId);
 
         if(user != null) {
-            console.log("found user");
-            console.log(user);
+            vm.user = user;
         }
     }
 })();

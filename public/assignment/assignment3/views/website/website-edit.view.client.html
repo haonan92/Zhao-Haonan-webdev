@@ -1,27 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <title>WebsiteEdit</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/style.css"/>
-</head>
-<body>
-
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
-
         <div class="row">
-
             <div class="col-sm-4 hidden-xs">
                 <p class="navbar-text pull-right">
-                    <a class="navbar-link" href="website-new.html">
+                    <a class="navbar-link" href="#/user/{{model.userId}}/website/new">
                         <span class="glyphicon glyphicon-plus"></span>
                     </a>
                 </p>
                 <p class="navbar-text pull-left">
-                    <a href="website-list.view.client.html" class="navbar-link">
+                    <a href="#/user/{{model.userId}}/website" class="navbar-link">
                         <span class="glyphicon glyphicon-chevron-left"></span>
                     </a>
                 </p>
@@ -32,12 +19,12 @@
 
             <div class="col-sm-8 col-xs-12">
                 <p class="navbar-text pull-right">
-                    <a class="navbar-link" href="website-list.view.client.html">
+                    <a class="navbar-link" href="#/user/{{model.userId}}/website">
                         <span class="glyphicon glyphicon-ok"></span>
                     </a>
                 </p>
                 <p class="navbar-text pull-left">
-                    <a class="navbar-link" href="website-list.view.client.html">
+                    <a class="navbar-link" href="#/user/{{model.userId}}/website">
                         <span class="glyphicon glyphicon-chevron-left"></span>
                     </a>
                 </p>
@@ -51,14 +38,13 @@
 
 
 <div class="container-fluid contentPadding">
-
     <div class="row">
         <div class="col-xs-4 hidden-xs">
             <ul class="list-group">
                 <li class="list-group-item">
                     <a href="../page/page-list.html">Address Book App</a>
                     <div class="listConf pull-right">
-                        <a href="website-edit.html">
+                        <a href="#/user/{{model.userId}}/website/{{model.website._id}}">
                             <span class="glyphicon glyphicon-cog"></span>
                         </a>
                     </div>
@@ -66,7 +52,7 @@
                 <li class="list-group-item">
                     <a href="../page/page-list.html">Blogger</a>
                     <div class="listConf pull-right">
-                        <a href="website-edit.html">
+                        <a href="#/user/{{model.userId}}/website/{{model.website._id}}">
                             <span class="glyphicon glyphicon-cog"></span>
                         </a>
                     </div>
@@ -74,7 +60,7 @@
                 <li class="list-group-item">
                     <a href="../page/page-list.html">Blogging App</a>
                     <div class="listConf pull-right">
-                        <a href="website-edit.html">
+                        <a href="#/user/{{model.userId}}/website/{{model.website._id}}">
                             <span class="glyphicon glyphicon-cog"></span>
                         </a>
                     </div>
@@ -82,7 +68,7 @@
                 <li class="list-group-item">
                     <a href="../page/page-list.html">Script Testing App</a>
                     <div class="listConf pull-right">
-                        <a href="website-edit.html">
+                        <a href="#/user/{{model.userId}}/website/{{model.website._id}}">
                             <span class="glyphicon glyphicon-cog"></span>
                         </a>
                     </div>
@@ -94,10 +80,13 @@
 
         <!-------------------content for website edit-------------------------->
         <div class="col-sm-8 col-xs-12 main-panel">
+            {{model.website}}
+            {{model.website._id}}
+
             <form>
                 <div class="form-group">
                     <label for="name">Website Name</label>
-                    <input type="text" class="form-control" id="name" placeholder="website name" value="Blogger">
+                    <input ng-model="model.website.name" type="text" class="form-control" id="name" placeholder="website name" value="Blogger">
                 </div>
                 <div class="form-group">
                     <label for="description">Website Description</label>
@@ -105,7 +94,7 @@
                     </textarea>
                 </div>
             </form>
-            <a class="btn btn-danger btn-block" href="website-list.view.client.html">Delete</a>
+            <a class="btn btn-danger btn-block" href="#/user/{{model.userId}}/website">Delete</a>
         </div>
     </div>
 </div>
@@ -120,6 +109,3 @@
         </div>
     </div>
 </footer>
-
-</body>
-</html>

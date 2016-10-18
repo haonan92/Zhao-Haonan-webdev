@@ -15,7 +15,7 @@
     <form>
         <div class="form-group">
             <label for="username">Username</label>
-            <input type="text" class="form-control" id="username" placeholder="e.g. hounan">
+            <input ng-model ="model.user.username" type="text" class="form-control" id="username" placeholder= "e.g. haonan">
         </div>
         <div class="form-group">
             <label for="email">Email address</label>
@@ -23,16 +23,16 @@
         </div>
         <div class="form-group">
             <label for="first-name">First Name</label>
-            <input type="text" class="form-control" id="first-name" placeholder="e.g. hou">
+            <input ng-model="model.user.first" type="text" class="form-control" id="first-name" placeholder="e.g. hou">
         </div>
         <div class="form-group">
             <label for="last-name">Last Name</label>
-            <input type="text" class="form-control" id="last-name" placeholder="e.g. nan">
+            <input ng-model="model.user.last" type="text" class="form-control" id="last-name" placeholder="e.g. nan">
         </div>
     </form>
 
     <a class="btn btn-primary btn-block"
-       href="#/website">Websites</a>
+       href="#/user/{{model.user._id}}/website">Websites</a>
     <a class="btn btn-danger  btn-block"
        href="#/login">Logout</a>
 </div>

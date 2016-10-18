@@ -8,10 +8,10 @@
     
     function UserService() {
         var users = [
-            {username:"alice", password:"shit", _id:"123"},
-            {username:"bob", password:"st" ,_id:"345"},
-            {username:"char", password:"hd33t", _id :"443"},
-            {username:"dan", password:"shg42", _id:"333"}
+            {username:"alice", password:"qqqqq", _id:"123", first:"Alice", last:"wonderland"},
+            {username:"bob", password:"st" ,_id:"456", first:"bob", last:"delen"},
+            {username:"char", password:"123", _id :"789", first:"char", last:"wod"},
+            {username:"dan", password:"3435", _id:"111", first:"dan", last:"and"}
         ];
 
         var api = {

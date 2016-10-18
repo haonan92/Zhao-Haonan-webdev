@@ -1,12 +1,12 @@
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
         <p class="navbar-text pull-right">
-            <a class="navbar-link" href="website-new.html">
+            <a class="navbar-link" href="#/user/{{model.userId}}/website/new">
                 <span class="glyphicon glyphicon-plus"></span>
             </a>
         </p>
         <p class="navbar-text pull-left">
-            <a href="../user/profile.view.client.html" class="navbar-link">
+            <a href="#/user/{{model.userId}}" class="navbar-link">
                 <span class="glyphicon glyphicon-chevron-left"></span>
             </a>
         </p>
@@ -18,35 +18,12 @@
 
 
 <div class="container-fluid contentPadding">
+    {{model.websites}}
     <ul class="list-group">
-        <li class="list-group-item">
-            <a href="../page/page-list.html">Address Book App</a>
+        <li ng-repeat= "website in model.websites" class="list-group-item">
+            <a href="#">{{website.name}}</a>
             <div class="listConf pull-right">
-                <a href="website-edit.html">
-                    <span class="glyphicon glyphicon-cog"></span>
-                </a>
-            </div>
-        </li>
-        <li class="list-group-item">
-            <a href="../page/page-list.html">Blogger</a>
-            <div class="listConf pull-right">
-                <a href="website-edit.html">
-                    <span class="glyphicon glyphicon-cog"></span>
-                </a>
-            </div>
-        </li>
-        <li class="list-group-item">
-            <a href="../page/page-list.html">Blogging App</a>
-            <div class="listConf pull-right">
-                <a href="website-edit.html">
-                    <span class="glyphicon glyphicon-cog"></span>
-                </a>
-            </div>
-        </li>
-        <li class="list-group-item">
-            <a href="../page/page-list.html">Script Testing App</a>
-            <div class="listConf pull-right">
-                <a href="website-edit.html">
+                <a href="#/user/{{model.userId}}/website/{{website._id}}">
                     <span class="glyphicon glyphicon-cog"></span>
                 </a>
             </div>
