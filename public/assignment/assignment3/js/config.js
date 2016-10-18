@@ -8,16 +8,20 @@
     function Config($routeProvider) {
         $routeProvider
             .when("/login", {
-                templateUrl: "user/login.view.client.html"
+                templateUrl: "views/user/login.view.client.html",
+                controller: "LoginController",
+                controllerAs:"model"
             })
             .when("/register", {
-                templateUrl: "user/register.view.client.html"
+                templateUrl: "views/user/register.view.client.html"
             })
-            .when("/profile", {
-                templateUrl: "user/profile.view.client.html"
+            .when("/user/:uid", {
+                templateUrl: "views/user/profile.view.client.html",
+                controller:"ProfileController",
+                controllerAs:"model"
             })
             .when("/website", {
-                templateUrl: "website/website-list.view.client.html"
+                templateUrl: "views/website/website-list.view.client.html"
             })
             .otherwise({
                 redirectTo:"/login"
