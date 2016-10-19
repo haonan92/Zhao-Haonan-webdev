@@ -12,9 +12,14 @@
 
         var api = {
             findWebsitesForUser: findWebsitesForUser,
-            findWebsiteById: findWebsiteById
+            findWebsiteById: findWebsiteById,
+            createNewWebsite: createNewWebsite
         };
         return api;
+
+        function createNewWebsite(website) {
+            websites.push(website);
+        }
 
         function findWebsiteById(wid) {
             for (var w in websites) {
