@@ -18,10 +18,9 @@
 
 
 <div class="container-fluid contentPadding">
-    {{model.websites}}
     <ul class="list-group">
         <li ng-repeat= "website in model.websites" class="list-group-item">
-            <a href="#">{{website.name}}</a>
+            <a href="#/user/{{model.userId}}/website/{{website._id}}/page">{{website.name}}</a>
             <div class="listConf pull-right">
                 <a href="#/user/{{model.userId}}/website/{{website._id}}">
                     <span class="glyphicon glyphicon-cog"></span>

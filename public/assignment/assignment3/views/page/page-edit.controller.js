@@ -5,14 +5,15 @@
 (function () {
     angular
         .module("WebAppMaker")
-        .controller("PageListController", PageListController);
+        .controller("PageEditController", PageEditController);
 
-    function PageListController($routeParams, PageService) {
+    function PageEditController($routeParams, PageService) {
         var vm = this;
         vm.websiteId = parseInt($routeParams.wid);
         vm.userId = parseInt($routeParams.uid);
+        vm.pageId = parseInt($routeParams.pid);
 
-        vm.pages = PageService.findPageByWebsiteId(vm.websiteId);
+        //svm.pages = PageService.findPageByWebsiteId(vm.websiteId);
 
 
     }

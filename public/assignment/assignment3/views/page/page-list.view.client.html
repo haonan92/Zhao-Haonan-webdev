@@ -1,12 +1,12 @@
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
         <p class="navbar-text pull-right">
-            <a class="navbar-link" href="page-new.html">
+            <a class="navbar-link" href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/new">
                 <span class="glyphicon glyphicon-plus"></span>
             </a>
         </p>
         <p class="navbar-text pull-left">
-            <a class="navbar-link" href="../website/website-list.view.client.html">
+            <a class="navbar-link" href="#/user/{{model.userId}}/website">
                 <span class="glyphicon glyphicon-chevron-left"></span>
             </a>
         </p>
@@ -18,42 +18,10 @@
 
 <div class="container-fluid contentPadding">
     <ul class="list-group">
-        <li class="list-group-item">
-            <a href="../widget/widget-list.html">Blog Post</a>
+        <li ng-repeat= "page in model.pages" class="list-group-item">
+            <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{page._id}}/widget">{{page.name}}</a>
             <div class="listConf pull-right">
-                <a href="page-edit.html">
-                    <span class="glyphicon glyphicon-cog"></span>
-                </a>
-            </div>
-        </li>
-        <li class="list-group-item">
-            <a href="../widget/widget-list.html">Blogs</a>
-            <div class="listConf pull-right">
-                <a href="page-edit.html">
-                    <span class="glyphicon glyphicon-cog"></span>
-                </a>
-            </div>
-        </li>
-        <li class="list-group-item">
-            <a href="../widget/widget-list.html">Home</a>
-            <div class="listConf pull-right">
-                <a href="page-edit.html">
-                    <span class="glyphicon glyphicon-cog"></span>
-                </a>
-            </div>
-        </li>
-        <li class="list-group-item">
-            <a href="../widget/widget-list.html">About</a>
-            <div class="listConf pull-right">
-                <a href="page-edit.html">
-                    <span class="glyphicon glyphicon-cog"></span>
-                </a>
-            </div>
-        </li>
-        <li class="list-group-item">
-            <a href="../widget/widget-list.html">Contact Us</a>
-            <div class="listConf pull-right">
-                <a href="page-edit.html">
+                <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{page._id}}">
                     <span class="glyphicon glyphicon-cog"></span>
                 </a>
             </div>
@@ -64,7 +32,7 @@
 <footer class="navbar navbar-default navbar-fixed-bottom">
     <div class="container-fluid">
         <div class="navbar-text pull-right">
-            <a class="navbar-link" href="../user/profile.view.client.html">
+            <a class="navbar-link" href="#/user/{{model.userId}}">
                 <span class="glyphicon glyphicon-user"></span>
             </a>
         </div>

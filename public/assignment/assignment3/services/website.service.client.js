@@ -5,9 +5,9 @@
 
     function WebsiteService() {
         var websites = [
-            {_id: 321, name: 'facebook.com', uid: 123},
-            {_id: 432, name: 'wikipedia.org', uid: 123},
-            {_id: 543, name: 'twitter.com', uid: 456}
+            {_id: 1000, name: 'facebook.com', uid: 111},
+            {_id: 2000, name: 'wikipedia.org', uid: 222},
+            {_id: 3000, name: 'twitter.com', uid: 222}
         ];
 
         var api = {
