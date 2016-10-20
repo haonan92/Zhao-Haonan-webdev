@@ -62,8 +62,8 @@
 
             .when("/user/:uid/website/:wid/page/:pid/widget", {
                 templateUrl: "views/widget/widget-list.view.client.html",
-                //controller: "PageEditController",
-                //controllerAs: "model"
+                controller: "WidgeListController",
+                controllerAs: "model"
             })
 
             .otherwise({
