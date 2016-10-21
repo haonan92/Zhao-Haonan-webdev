@@ -13,8 +13,10 @@
         vm.pageId = parseInt($routeParams['pid']);
         vm.wigetId = parseInt($routeParams['wgid']);
 
+
         function inti() {
             vm.widget = WidgetService.findWidgetbyId(vm.wigetId);
+            vm.wigtype = vm.widget.widgetType.toLowerCase();
         }
 
         inti();

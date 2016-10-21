@@ -13,11 +13,11 @@
         var api = {
             findWebsitesForUser: findWebsitesForUser,
             findWebsiteById: findWebsiteById,
-            createNewWebsite: createNewWebsite
+            createWebsite: createWebsite
         };
         return api;
 
-        function createNewWebsite(website) {
+        function createWebsite(website) {
             websites.push(website);
         }
 
