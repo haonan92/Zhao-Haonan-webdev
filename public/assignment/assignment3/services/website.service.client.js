@@ -13,7 +13,8 @@
         var api = {
             findWebsitesForUser: findWebsitesForUser,
             findWebsiteById: findWebsiteById,
-            createWebsite: createWebsite
+            createWebsite: createWebsite,
+            updateWebsite:updateWebsite
         };
         return api;
 
@@ -39,5 +40,14 @@
             }
             return result;
         }
+
+        function updateWebsite(website) {
+            for (var w in websites) {
+                if(websites[w]._id === website._id) {
+                    websites[w] = website;
+                }
+            }
+        }
+
     }
 })();
