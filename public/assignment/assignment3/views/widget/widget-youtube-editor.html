@@ -1,28 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <title>Widget Youtube</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/style.css"/>
-</head>
-<body>
-
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
         <p class="navbar-text pull-right">
-            <a class="navbar-link" href="widget-list.view.client.html">
+            <a class="navbar-link" href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget">
                 <span class="glyphicon glyphicon-ok"></span>
             </a>
         </p>
         <p class="navbar-text pull-left">
-            <a class="navbar-link" href="widget-list.view.client.html">
+            <a class="navbar-link" href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget">
                 <span class="glyphicon glyphicon-chevron-left"></span>
             </a>
         </p>
         <div class="navbar-header">
-            <a class="navbar-brand">Widget Edit</a>
+            <a class="navbar-brand">Widget Youtube Edit</a>
         </div>
     </div>
 </nav>
@@ -45,19 +34,16 @@
             <label for="width">Width</label>
             <input type="number" class="form-control" id="width">
         </div>
-        <a class="btn btn-danger btn-block" href="widget-list.view.client.html">Delete</a>
+        <a class="btn btn-danger btn-block" href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget">Delete</a>
     </form>
 </div>
 
 <footer class="navbar navbar-default navbar-fixed-bottom">
     <div class="container-fluid">
         <div class="navbar-text pull-right">
-            <a class="navbar-link" href="../user/profile.view.client.html">
+            <a class="navbar-link" href="#/user/{{model.userId}}">
                 <span class="glyphicon glyphicon-user"></span>
             </a>
         </div>
     </div>
 </footer>
-
-</body>
-</html>

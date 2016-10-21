@@ -33,7 +33,8 @@
         ];
 
         var api = {
-            findWidgetsForPage:findWidgetsForPage
+            findWidgetsForPage:findWidgetsForPage,
+            findWidgetbyId:findWidgetbyId
         }
         return api;
 
@@ -45,6 +46,16 @@
                 }
             }
             return result;
+        }
+
+
+        function findWidgetbyId(wid) {
+            for(var w in widgets) {
+                if(widgets[w]._id == wid) {
+                    return widgets[w];
+                }
+            }
+            return null;
         }
     }
 })();

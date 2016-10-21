@@ -17,9 +17,9 @@
 </nav>
 
 <div class="container-fluid contentPadding">
-    <div class="col-sm-8">
+    <div class="list-group">
 
-        <div class="col-sm-8 pull-right" style="padding-left: 30px;padding-right: 0px;">
+        <div class="relative-position">
             <div ng-switch="widget.widgetType"
                  ng-repeat="widget in model.widgets">
                 <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/{{widget._id}}" class="pull-right">
@@ -44,11 +44,19 @@
                 <div ng-switch-when="HTML" ng-bind-html="model.checkSafeHtml(widget.text)">
                 </div>
             </div>
-
         </div>
     </div>
-    </div>
 </div>
+
+<footer class="navbar navbar-default navbar-fixed-bottom">
+    <div class="container-fluid">
+        <div class="navbar-text pull-right">
+            <a class="navbar-link" href="../user/profile.html">
+                <span class="glyphicon glyphicon-user"></span>
+            </a>
+        </div>
+    </div>
+</footer>
 
 <footer class="navbar navbar-default navbar-fixed-bottom">
     <div class="container-fluid">
