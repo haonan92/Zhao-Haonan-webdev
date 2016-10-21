@@ -1,7 +1,7 @@
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
         <p class="navbar-text pull-right">
-            <a class="navbar-link" href="widget-chooser.html">
+            <a class="navbar-link" href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/new">
                 <span class="glyphicon glyphicon-plus"></span>
             </a>
         </p>
@@ -17,83 +17,36 @@
 </nav>
 
 <div class="container-fluid contentPadding">
-    {{model.userId}}
-    {{model.websiteId}}
-    {{model.pageId}}
+    <div class="col-sm-8">
 
-    <div class="list-group">
-
-        <div class="relative-position">
-            <div class="absolute-position symbol-overlay">
-                <a href="widget-heading.html"><span class="glyphicon glyphicon-cog"></span></a>
-                <span class="glyphicon glyphicon-menu-hamburger"></span>
+        <div class="col-sm-8 pull-right" style="padding-left: 30px;padding-right: 0px;">
+            <div ng-switch="widget.widgetType"
+                 ng-repeat="widget in model.widgets">
+                <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/{{widget._id}}" class="pull-right">
+                    <span class="glyphicon glyphicon-cog"></span>
+                </a>
+                <div ng-switch="widget.size" ng-switch-when="HEADER">
+                    <h1 ng-switch-when="1">{{widget.text}}</h1>
+                    <h2 ng-switch-when="2">{{widget.text}}</h2>
+                    <h3 ng-switch-when="3">{{widget.text}}</h3>
+                    <h4 ng-switch-when="4">{{widget.text}}</h4>
+                    <h5 ng-switch-when="5">{{widget.text}}</h5>
+                    <h6 ng-switch-when="6">{{widget.text}}</h6>
+                </div>
+                <div ng-switch-when="YOUTUBE">
+                    <iframe width="560" height="315"
+                            ng-src="{{model.checkSafeYouTubeUrl(widget.url)}}"
+                            frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div ng-switch-when="IMAGE">
+                    image
+                </div>
+                <div ng-switch-when="HTML" ng-bind-html="model.checkSafeHtml(widget.text)">
+                </div>
             </div>
-            <h1 class="superme">Supreme</h1>
+
         </div>
-
-        <div class="relative-position">
-            <div class="absolute-position symbol-overlay">
-                <a href="widget-heading.html"><span class="glyphicon glyphicon-cog"></span></a>
-                <span class="glyphicon glyphicon-menu-hamburger"></span>
-            </div>
-            <h2>Supreme became NYC stake culture</h2>
-        </div>
-
-        <div class="relative-position">
-            <img src="https://static1.squarespace.com/static/54e65bb9e4b01dbc2504dd68/t/54e7daa7e4b0328389a5ec53/1424480943858/?format=500w"
-                 class="img-responsive center-block">
-            <div class="absolute-position symbol-overlay">
-                <a href="widget-image.html"><span class="glyphicon glyphicon-cog"></span></a>
-                <span class="glyphicon glyphicon-menu-hamburger"></span>
-            </div>
-        </div>
-
-        <div class="relative-position">
-            <div class="absolute-position symbol-overlay section-space">
-                <a href="widget-heading.html"><span class="glyphicon glyphicon-cog"></span></a>
-                <span class="glyphicon glyphicon-menu-hamburger"></span>
-            </div>
-            <p class="section-spaceg">With a prescription drug problem,
-                <a href="http://www.dazeddigital.com/fashion/article/31919/1/supremacist-david-shapiro-why-are-men-obsessed-with-supreme">
-                    alcohol addiction and seemingly </a>
-                disinterested love interest in tow,the narrator goes on a trip to
-                <br/>
-                every Supreme store in the world– as Shapiro himself did, using
-                the money from the publisher’s advance to fund the trip.
-                </p>
-        </div>
-
-        <div class="relative-position">
-            <div class="absolute-position symbol-overlay">
-                <a href="widget-heading.html"><span class="glyphicon glyphicon-cog"></span></a>
-                <span class="glyphicon glyphicon-menu-hamburger"></span>
-            </div>
-            <h2>Inside Supreme's Underground Reselling Economy</h2>
-        </div>
-
-        <div class="relative-position embed-responsive-4by3 embed-responsive">
-            <div class="absolute-position symbol-overlay">
-                <a href="widget-youtube.html"><span class="glyphicon glyphicon-cog"></span></a>
-                <span class="glyphicon glyphicon-menu-hamburger"></span>
-            </div>
-            <iframe src="https://www.youtube.com/embed/PbsTo_JsoD0" frameborder="0" allowfullscreen></iframe>        </div>
-
-
-        <div class="relative-position">
-            <!--<!-- 4:3 aspect ratio    from bootstrap  http://www.w3schools.com/bootstrap/bootstrap_images.asp-->
-            <div class="absolute-position symbol-overlay section-space">
-                <a href="widget-heading.html"><span class="glyphicon glyphicon-cog"></span></a>
-                <span class="glyphicon glyphicon-menu-hamburger"></span>
-            </div>
-            <p class="section-space">There’s a Supreme North Face map backpack
-                that is like a map of the world, and there’s an area in it that just says Supreme,
-                <br/>
-                it’s like an ocean or something. When I saw it I guess it occurred to me that it would
-                be a worthwhile trip, and I also wanted to explore some relationship I have with Supreme.
-                I wanted to go on the trip and thought the way to pay for it
-                was by selling the idea of the book.</p>
-        </div>
-
+    </div>
     </div>
 </div>
 
