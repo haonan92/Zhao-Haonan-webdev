@@ -12,9 +12,17 @@
         //var userId = parseInt($routeParams.uid);
         var userId = $routeParams.uid;
         var user = UserService.findUserById(userId);
+        vm.updateUser = updateUser;
 
         if(user != null) {
             vm.user = user;
         }
+
+        function updateUser(currentuser) {
+            UserService.updateUser(user);
+            console.log(currentuser);
+            vm.success = "You have updated user!! Email:"+currentuser.emailaddress + "     Firstname: "+currentuser.first +"     Lastame:"+currentuser.last;
+        }
+
     }
 })();
