@@ -67,7 +67,7 @@
                     </textarea>
                 </div>
             </form>
-            <a class="btn btn-danger btn-block" href="#/user/{{model.userId}}/website">Delete</a>
+            <a ng-click="model.removeWebsite(model.website._id)"class="btn btn-danger btn-block">Delete</a>
         </div>
     </div>
 </div>
