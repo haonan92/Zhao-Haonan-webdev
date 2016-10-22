@@ -21,10 +21,41 @@
         ];
 
         var api = {
-            findPageByWebsiteId:findPageByWebsiteId
+            findPageByWebsiteId:findPageByWebsiteId,
+            createPage:createPage,
+            findPageById:findPageById,
+            updatePage:updatePage,
+            deletePage:deletePage
         };
 
         return api;
+
+        function deletePage(pid) {
+            for (var p in pages) {
+                if(pages[p]._id === pid) {
+                    pages.splice(p, 1);
+                }
+            }
+        }
+
+        function updatePage(page) {
+            for (var p in pages) {
+                if(pages[p]._id === page._id) {
+                    pages[p] = page;
+                }
+            }
+        }
+        
+        function findPageById(pid) {
+            for(var p in pages) {
+                if(parseInt(pages[p]._id) === pid) {
+                    return pages[p];
+                }
+            }
+            return null;
+        }
+
+        //function find pages by website Id
         function findPageByWebsiteId(wid) {
             var result = [];
             for(var p in pages) {
@@ -34,5 +65,14 @@
             }
             return result;
         }
+
+
+        //fuction create new page
+        function createPage(page) {
+            pages.push(page);
+        }
+
+
+
     }
 })();
