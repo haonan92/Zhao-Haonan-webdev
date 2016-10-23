@@ -19,6 +19,7 @@
         }
 
         function updateUser(currentuser) {
+            currentuser = vm.user;
             UserService.updateUser(user);
             console.log(currentuser);
             vm.success = "You have updated user!! Email:"+currentuser.emailaddress + "     Firstname: "+currentuser.first +"     Lastame:"+currentuser.last;

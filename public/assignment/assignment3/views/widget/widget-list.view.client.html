@@ -39,7 +39,7 @@
                             frameborder="0" allowfullscreen></iframe>
                 </div>
                 <div ng-switch-when="IMAGE">
-                    image
+                    <img src="{{widget.url}}">
                 </div>
                 <div ng-switch-when="HTML" ng-bind-html="model.checkSafeHtml(widget.text)">
                 </div>

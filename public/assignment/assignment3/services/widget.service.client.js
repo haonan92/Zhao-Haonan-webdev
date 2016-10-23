@@ -34,9 +34,32 @@
 
         var api = {
             findWidgetsForPage:findWidgetsForPage,
-            findWidgetbyId:findWidgetbyId
+            findWidgetbyId:findWidgetbyId,
+            createWidget:createWidget,
+            updateWidget:updateWidget
         }
         return api;
+
+        function updateWidget(widget) {
+            for(var w in widgets) {
+                if(widgets[w]._id === widget._id) {
+                    widgets[w] = widget;
+                    return widget;
+                }
+            }
+            return null;
+        }
+
+
+        function createWidget(pid, widget) {
+
+            widget._id = (new Date()).getTime().toString();
+            widget.pageId = pid;
+            widget.text ="New text Created";
+            widgets.push(widget);
+            return widget;
+        }
+
 
         function findWidgetsForPage(pid) {
             var result = [];

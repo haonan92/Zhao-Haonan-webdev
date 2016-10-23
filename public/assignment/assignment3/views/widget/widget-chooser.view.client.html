@@ -14,13 +14,14 @@
 <div class="container-fluid contentPadding">
     <ul class="list-group">
         <li class="list-group-item">
-            <a href="widget-header-editor.html">Header</a>
+            <a ng-click="model.createWidget(model.pageId, {widgetType: 'HEADER'})">Header</a>
         </li>
         <li class="list-group-item">
+            <a ng-click="model.createWidget(model.pageId, {widgetType: 'HTML'})">HTML</a>
+        </li>
+        <!--
+         <li class="list-group-item">
             <a href="#">Label</a>
-        </li>
-        <li class="list-group-item">
-            <a href="#">HTML</a>
         </li>
         <li class="list-group-item">
             <a href="#">Text Input</a>
@@ -31,17 +32,18 @@
         <li class="list-group-item">
             <a href="#">Button</a>
         </li>
-        <li class="list-group-item">
-            <a href="widget-image-editor.html">Image</a>
-        </li>
-        <li class="list-group-item">
-            <a href="widget-youtube-editor.html">YouTube</a>
-        </li>
-        <li class="list-group-item">
+         <li class="list-group-item">
             <a href="#">Data Table</a>
         </li>
         <li class="list-group-item">
             <a href="#">Repeater</a>
+        </li>
+        -->
+        <li class="list-group-item">
+            <a ng-click="model.createWidget(model.pageId, {widgetType: 'IMAGE'})">Image</a>
+        </li>
+        <li class="list-group-item">
+            <a ng-click="model.createWidget(model.pageId, {widgetType: 'YOUTUBE'})">YouTube</a>
         </li>
     </ul>
 </div>
