@@ -22,6 +22,14 @@
                 controller:"ProfileController",
                 controllerAs:"model"
             })
+
+            .when("/user/:uid/database", {
+                templateUrl: "views/user/database.html",
+                controller:"ProfileController",
+                controllerAs:"model"
+            })
+
+
             .when("/user/:uid/website", {
                 templateUrl: "views/website/website-list.view.client.html",
                 controller: "WebsiteListController",

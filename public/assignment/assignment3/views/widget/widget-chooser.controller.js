@@ -13,6 +13,7 @@
         vm.pageId = parseInt($routeParams['pid']);
         vm.wigetId = parseInt($routeParams['wgid']);
 
+
         vm.createWidget = createWidget;
 
 

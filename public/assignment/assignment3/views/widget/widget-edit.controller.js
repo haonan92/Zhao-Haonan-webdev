@@ -13,6 +13,7 @@
         vm.pageId = parseInt($routeParams['pid']);
         vm.wigetId = parseInt($routeParams['wgid']);
         vm.updateWidget =updateWidget;
+        vm.deleteWidget = deleteWidget;
 
 
         function inti() {
@@ -23,6 +24,15 @@
         }
 
         inti();
+
+
+        function deleteWidget(wgid) {
+            wgid = vm.widget._id;
+            WidgetService.deleteWidget(wgid);
+            alert("This Widget has been removed, click back to widget list")
+            $location.url("/user/"+vm.userId+"/website/"+vm.websiteId+"/page/"+vm.pageId+"/widget");
+
+        }
 
         function updateWidget(widget) {
             widget = vm.widget;

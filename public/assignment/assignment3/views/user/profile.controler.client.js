@@ -13,9 +13,16 @@
         var userId = $routeParams.uid;
         var user = UserService.findUserById(userId);
         vm.updateUser = updateUser;
+        vm.users = UserService.allUsers();
+        vm.deleteUser = deleteUser;
 
         if(user != null) {
             vm.user = user;
+        }
+
+
+        function deleteUser(uid) {
+            UserService.deleteUser(uid);
         }
 
         function updateUser(currentuser) {
