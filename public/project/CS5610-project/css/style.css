@@ -1,8 +1,9 @@
 .navbar-default {
-    background-color: #337ab7;
+    background-color: black;
+    border-color: black;
 }
 .navbar-fixed-bottom {
-    background-color: #145f84;
+    background-color: black;
 }
 
 .navbar-default .navbar-brand {
@@ -20,6 +21,7 @@
 body {
     padding-top: 40px;
     padding-bottom: 56px;
+    background-color: black;
 }
 
 input.form-control {
