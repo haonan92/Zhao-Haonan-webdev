@@ -21,14 +21,16 @@
         init();
 
         function createWebsite(website) {
-            website._id = (new Date()).getTime();
             website.uid = vm.userId;
-            WebsiteService.createWebsite(website);
-            console.log(website);
+            WebsiteService
+            .createWebsite(website)
+                .success(function (website) {
+                    $location.url("/user/"+ vm.userId +"/website");
 
-            //function to reupdate the list left hand side
-            vm.websites= WebsiteService.findWebsitesForUser(vm.userId);
-            $location.url("/user/"+ vm.userId +"/website");
+                })
+                .error(function () {
+
+                })
         }
 
     }

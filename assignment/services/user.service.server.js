@@ -16,12 +16,22 @@ module.exports = function (app) {
         app.get('/api/user/:uid', findUserbyId);
         app.post('/api/user',createUser);
         app.get('/api/users/alluser', allUsers);    //why I change it to api/user/alluser doesn;t work
+        app.put('/api/user/:uid',updateUser);
 
-    function allUsers(req, res) {
-        console.log("dddd");
+
+
+    function updateUser() {
+        console.log("hello update");
     }
 
 
+   //testing purpose
+    function allUsers(req, res) {
+        res.send(users);
+
+    }
+
+    //for register
     function createUser(req, res) {
             var user = req.body;
             user._id = (new Date()).getTime();
@@ -30,7 +40,7 @@ module.exports = function (app) {
         }
 
 
-
+        //for login
         function findUser(req, res) {
             var params = req.params;
             var query = req.query;
@@ -42,6 +52,7 @@ module.exports = function (app) {
             }
         }
 
+        //for register
         function findUserByUsername(req, res) {
             var username = req.query.username;
             for (var u in users) {
@@ -55,6 +66,7 @@ module.exports = function (app) {
         }
 
 
+        //for login
         function findUserByCredentials(req, res) {
             var username = req.query.username;
             var password = req.query.password;
@@ -70,6 +82,7 @@ module.exports = function (app) {
         }
 
 
+        //for login
         function findUserbyId(req, res) {
             var userId = req.params.uid;
             for (var u in users) {

@@ -18,7 +18,6 @@
             findUserByCredentials: findUserByCredentials,
             findUserById: findUserById,
             createUser:createUser,
-            allUsers:allUsers,
             findUserByUsername:findUserByUsername,
             updateUser:updateUser,
             deleteUser:deleteUser
@@ -43,21 +42,11 @@
             }
         }
 
-        function findUserByUsername(username) {
-            for(var u in users) {
-                var user = users[u];
-                if(user.username === username) {
-                    return user;
-                }
-            }
-            return null;
-        }
 
-        /*
-        function allUsers() {
-            ;
+        function findUserByUsername(username) {
+            var url = '/api/user?username='+username;
+            return $http.get(url);
         }
-        */
 
 
         function createUser(user) {

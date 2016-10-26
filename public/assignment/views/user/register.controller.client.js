@@ -11,35 +11,31 @@
         var vm = this;
         vm.createUser = createUser;
 
-
-
-
-        function init() {
-            vm.users = UserService.allUsers();
-
-        }
-        init();
-
         function createUser(user) {
-            UserService
-                .createUser(user)
-                .success(function (user) {
-                    if(user.password != user.password2 || !user.password || !user.password2) {
-                        vm.error = "Your passwords don't match";
-                        return;
-                    }
+            if(user.password != user.password2 || !user.password || !user.password2) {
+                vm.error = "Your passwords don't match";
+                return;
+            }
 
-                    if(UserService.findUserByUsername(user.username) != null) {
+            var promise = UserService.findUserByUsername(user.username);
+            promise
+                .success(function(newuser){
+                    if(newuser != '0') {
                         vm.error = "Username exits, please change another one";
-                        return;
                     }
-                    $location.url("/user/" + user._id);
+                    else {
+                    UserService
+                        .createUser(user)
+                        .success(function (user) {
+                            $location.url("/user/" + user._id);
 
-                })
-                .error(function () {
-                    
-                })
-            
+                        })
+                        .error(function () {
+
+                        })
+                    }
+                });
+
 
         }
     }

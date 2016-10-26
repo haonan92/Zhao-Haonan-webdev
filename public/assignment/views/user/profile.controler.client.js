@@ -9,7 +9,6 @@
         var vm = this;
         var userId = $routeParams.uid;
         vm.updateUser = updateUser;
-        vm.users = UserService.allUsers();
         vm.deleteUser = deleteUser;
 
 
