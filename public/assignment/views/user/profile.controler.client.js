@@ -8,8 +8,8 @@
     function ProfileController($routeParams, UserService) {
         var vm = this;
         var userId = $routeParams.uid;
-        vm.updateUser = updateUser;
-        vm.deleteUser = deleteUser;
+        //vm.updateUser = updateUser;
+        //vm.deleteUser = deleteUser;
 
 
         function init() {
@@ -24,9 +24,23 @@
 
                 });
 
+            //return all users for the database page
+            UserService.allUsers()
+                .success(function (newusers) {
+                    if(newusers != '[]') {
+                        vm.users = newusers;
+                    }
+                })
+                .error(function () {
+
+                });
+
+
         }
         init();
 
+
+        /*
 
         function deleteUser(uid) {
             UserService.deleteUser(uid);
@@ -38,6 +52,7 @@
             console.log(currentuser);
             vm.success = "You have updated user!! Email:"+currentuser.emailaddress + "     Firstname: "+currentuser.first +"     Lastame:"+currentuser.last;
         }
+        */
 
     }
 })();

@@ -15,8 +15,21 @@
 
 
         function init() {
+
+            var promise = WebsiteService.findWebsiteById(websiteId);
+            promise
+                .success(function (newwebsite) {
+                    if(newwebsite != '0') {
+                        vm.website = newwebsite;
+                    }
+                })
+                .error(function () {
+
+                });
+
+
             vm.websites = WebsiteService.findWebsitesForUser(vm.userId);
-            vm.website = WebsiteService.findWebsiteById(websiteId);
+
         }
         init();
 

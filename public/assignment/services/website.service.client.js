@@ -34,13 +34,8 @@
         }
 
         function findWebsitesForUser(uid) {
-            var result = [];
-            for(var w in websites) {
-                if(websites[w].uid === uid) {
-                    result.push(websites[w]);
-                }
-            }
-            return result;
+            var url = '/api/user/'+uid+'/website';
+            return $http.get(url);
         }
 
 

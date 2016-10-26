@@ -35,6 +35,16 @@ module.exports = function (app) {
 
     function findWebsitesForUser(req, res) {
         console.log("Hello from findallwebforuser");
+        var uid = req.params.userId;
+        console.log(uid);
+        var result = [];
+        for(var w in websites) {
+            if(websites[w].uid === parseInt(uid)) {
+                result.push(websites[w]);
+            }
+        }
+        res.send(result);
+        return;
     }
 
 
@@ -43,6 +53,7 @@ module.exports = function (app) {
 
         var website = req.body;
         website._id = (new Date()).getTime();
+        console.log(website);
         websites.push(website);
         res.send(website);
 

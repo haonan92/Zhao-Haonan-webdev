@@ -18,6 +18,7 @@
 
 
 <div class="container-fluid contentPadding">
+    {{model.websites}}
     <ul class="list-group">
         <li ng-repeat= "website in model.websites" class="list-group-item">
             <a href="#/user/{{model.userId}}/website/{{website._id}}/page">{{website.name}}</a>
