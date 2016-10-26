@@ -53,15 +53,18 @@
             return null;
         }
 
+        /*
         function allUsers() {
-            return users;
+            ;
         }
+        */
 
 
         function createUser(user) {
             var newuser = {
                 username:user.username,
-                password:user.password
+                password:user.password,
+                password2:user.password2
             }
             return $http.post('/api/user', newuser);
             //users.push(user);

@@ -33,6 +33,8 @@
                         vm.error = "Username exits, please change another one";
                         return;
                     }
+                    $location.url("/user/" + user._id);
+
                 })
                 .error(function () {
                     

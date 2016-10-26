@@ -6,14 +6,7 @@ module.exports = function (app) {
 
         //user list
         var users = [
-            {
-                username: "alice",
-                password: "qqqqq",
-                _id: 111,
-                first: "Alice",
-                last: "wonderland",
-                emailaddress: "aaa@gmail.com"
-            },
+            {username: "alice", password: "qqqqq", _id: 111, first: "Alice", last: "wonderland", emailaddress: "aaa@gmail.com"},
             {username: "bob", password: "st", _id: 222, first: "bob", last: "delen", emailaddress: "bbb@gmail.com"},
             {username: "char", password: "123", _id: 333, first: "char", last: "wod", emailaddress: "bdb@gmail.com"},
             {username: "dan", password: "3435", _id: 444, first: "dan", last: "and", emailaddress: "ddd@gmail.com"}
@@ -22,14 +15,21 @@ module.exports = function (app) {
         app.get('/api/user', findUser);
         app.get('/api/user/:uid', findUserbyId);
         app.post('/api/user',createUser);
-    
-    
-        function createUser(req, res) {
+        app.get('/api/users/alluser', allUsers);    //why I change it to api/user/alluser doesn;t work
+
+    function allUsers(req, res) {
+        console.log("dddd");
+    }
+
+
+    function createUser(req, res) {
             var user = req.body;
             user._id = (new Date()).getTime();
             users.push(user);
             res.send(user);
         }
+
+
 
         function findUser(req, res) {
             var params = req.params;
