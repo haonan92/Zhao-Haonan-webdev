@@ -6,7 +6,7 @@
     function WebsiteEditController($routeParams, WebsiteService,$location) {
         var vm = this;
         var websiteId = parseInt($routeParams.wid);
-        vm.userId = parseInt($routeParams['uid']);
+        vm.userId = $routeParams.uid;
         //vm.updateWebsite = updateWebsite;
         //vm.removeWebsite = removeWebsite;
         function init() {
@@ -22,16 +22,14 @@
 
                 });
 
-
-            var promise2 = WebsiteService.findWebsitesForUser(userId);
-            promise2
+            WebsiteService.findWebsitesForUser(vm.userId)
                 .success(function (webs) {
+                    console.log(webs);
                     if(webs != '[]') {
                         vm.websites = webs;
                     }
                 })
                 .error(function () {
-
                 });
         }
         init();

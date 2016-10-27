@@ -10,7 +10,8 @@
         var vm = this;
         //why wid
         var websiteId = parseInt($routeParams.wid);
-        vm.userId = parseInt($routeParams['uid']);
+        vm.userId = $routeParams.uid;
+
         vm.createWebsite = createWebsite;
 
 
@@ -28,13 +29,20 @@
                 });
 
 
-            vm.websites = WebsiteService.findWebsitesForUser(vm.userId);
-
+            WebsiteService.findWebsitesForUser(vm.userId)
+                .success(function (webs) {
+                    console.log(webs);
+                    if(webs != '[]') {
+                        vm.websites = webs;
+                    }
+                })
+                .error(function () {
+                });
         }
         init();
 
         function createWebsite(website) {
-            website.uid = vm.userId;
+            website.uid = parseInt(vm.userId);
             WebsiteService
             .createWebsite(website)
                 .success(function (website) {

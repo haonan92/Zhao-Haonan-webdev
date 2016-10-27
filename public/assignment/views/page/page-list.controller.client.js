@@ -14,7 +14,14 @@
         vm.websiteId = parseInt($routeParams.wid);
 
         function  init() {
-            vm.pages = PageService.findPageByWebsiteId(vm.websiteId);
+            PageService.findAllPagesForWebsite(vm.websiteId)
+                .success(function (ps) {
+                    if(ps != '[]') {
+                        vm.pages = ps;
+                    }
+                })
+                .error(function () {
+                });
         }
         init();
     }

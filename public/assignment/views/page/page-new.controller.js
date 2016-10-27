@@ -12,25 +12,21 @@
         vm.websiteId = parseInt($routeParams.wid);
         vm.userId = parseInt($routeParams.uid);
         vm.createPage = createPage;
-        //svm.pages = PageService.findPageByWebsiteId(vm.websiteId);
 
-
-        /*  After init I can not get websiteId and userId
-        function init() {
-            vm.pages = PageService.findPageByWebsiteId(vm.websiteId);
-        }
-        return init;
-        */
 
         function createPage(page) {
-            page._id = (new Date()).getTime();
-            page.websiteId = vm.websiteId;
-            console.log(page);
-            PageService.createPage(page);
-            $location.url("/user/"+vm.userId+"/website/"+vm.websiteId+"/page");
+            page.websiteId = parseInt(vm.websiteId);
+            PageService
+                .createPage(page)
+                .success(function (page) {
+                    $location.url("/user/" + vm.userId + "/website/" + vm.websiteId + "/page");
+
+                })
+                .error(function () {
+
+                })
 
         }
-
     }
 })();
 

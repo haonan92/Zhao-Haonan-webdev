@@ -4,11 +4,7 @@
         .factory("WebsiteService", WebsiteService);
 
     function WebsiteService($http) {
-        var websites = [
-            {_id: 1000, name: 'facebook.com', uid: 111},
-            {_id: 2000, name: 'wikipedia.org', uid: 222},
-            {_id: 3000, name: 'twitter.com', uid: 222}
-        ];
+
 
         var api = {
             findWebsitesForUser: findWebsitesForUser,
@@ -29,7 +25,7 @@
         }
 
         function findWebsiteById(wid) {
-            var url = '/api/website/:wid';
+            var url = '/api/website/'+wid;
             return $http.get(url);
         }
 

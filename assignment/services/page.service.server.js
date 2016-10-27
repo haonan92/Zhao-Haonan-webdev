@@ -22,14 +22,54 @@ module.exports = function (app) {
     ];
 
 
-
+    app.post('/api/website/:websiteId/page', createPage);
     app.get('/api/pages/allpages', allPages);    //why I change it to api/user/alluser doesn;t work
+    app.get('/api/website/:websiteId/page', findAllPagesForWebsite);
+    app.get('/api/page/:pageId', findPageById);
+
+    function createPage(req, res) {
+        console.log("hello from createpageqqqqqqqqqqqqqqq");
+        var page = req.body;
+        page._id = (new Date()).getTime().toString();
+        pages.push(page);
+        res.send(page);
+    }
+
+    //finid page by id
+    function findPageById(req,res) {
+        console.log("hello from find page Id");
+        var pid = req.params.pageId;
+        console.log(pid);                     //undefined
+        for (var p in pages) {
+            if (pages[p]._id === pid) {
+                res.send(pages[p]);
+                return;
+            }
+        }
+        //if does not find
+        res.send('0');
+    }
 
 
+    //findallPagesforwebsite
+    function findAllPagesForWebsite(req, res) {
+        console.log("Hello from find all page for website");
+        var wid = req.params.websiteId;
+        console.log(wid);
+        var result = [];
+        for(var p in pages) {
+            if(pages[p].websiteId === parseInt(wid)) {
+                result.push(pages[p]);
+            }
+        }
+        res.send(result);
+        return;
+    }
 
     //testing purpose
     function allPages(req, res) {
         res.send(pages);
+
 
     }
 }
