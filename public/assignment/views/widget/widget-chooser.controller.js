@@ -18,20 +18,37 @@
 
 
         function inti() {
-            vm.widget = WidgetService.findWidgetbyId(vm.wigetId);
+            var promise = WidgetService.findWidgetbyId(vm.wigetId);
+            promise
+                .success(function (wig) {
+                    if(wig != '0') {
+                        vm.widget = wig;
+                    }
+                })
+                .error(function () {
+
+                });
         }
 
         inti();
 
+
+
         function createWidget(pid, widget) {
+            widget._id = (new Date()).getTime().toString();
+            widget.pageId = pid;
             if(widget.widgetType == 'HEADER' && widget.size == null) {
                 widget.size = 2;
             }
-            console.log("d");
-            var newWidget = WidgetService.createWidget(pid, widget);
-            console.log(newWidget);
-            $location.url("/user/" + vm.userId + "/website/" + vm.websiteId + "/page/" + vm.pageId + "/widget/" + newWidget._id);
+            WidgetService
+                .createWidget(widget)
+                .success(function () {
+                    $location.url("/user/" + vm.userId + "/website/" + vm.websiteId + "/page/" + vm.pageId + "/widget/" + widget._id);
 
+                })
+                .error(function () {
+
+                })
         }
     }
 })();

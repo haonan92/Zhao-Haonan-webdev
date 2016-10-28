@@ -17,9 +17,39 @@
 
 
         function inti() {
-            vm.widget = WidgetService.findWidgetbyId(vm.wigetId);
-            vm.widgets = WidgetService.findWidgetsForPage(vm.pageId);
-            vm.wigtype = vm.widget.widgetType.toLowerCase();
+            var promise = WidgetService.findWidgetbyId(vm.wigetId);
+            promise
+                .success(function (wig) {
+                    if(wig != '0') {
+                        vm.widget = wig;
+                    }
+                })
+                .error(function () {
+
+                });
+
+            WidgetService.findWidgetTypeById(vm.wigetId)
+                .success(function (wtype) {
+                    if(wtype != '0') {
+                        vm.wigtype = wtype.toLowerCase();
+                    }
+                })
+                .error(function () {
+
+                });
+
+
+            WidgetService.findWidgetsForPage(vm.pageId)
+                .success(function (wigs) {
+                    if(wigs != '[]') {
+                        vm.widgets = wigs;
+                    }
+                })
+                .error(function () {
+                });
+
+
+           // vm.widgets = WidgetService.findWidgetsForPage(vm.pageId);
 
         }
 
@@ -34,13 +64,14 @@
 
         }
 
-        function updateWidget(widget) {
-            widget = vm.widget;
-            var updated = WidgetService.updateWidget(widget);
+        function updateWidget(currentwidget) {
+            currentwidget = vm.widget;
+            var updated = WidgetService.updateWidget(currentwidget);
             console.log(updated);
             $location.url("/user/"+vm.userId+"/website/"+vm.websiteId+"/page/"+vm.pageId+"/widget");
 
         }
+
 
 
     }

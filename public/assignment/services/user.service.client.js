@@ -13,12 +13,15 @@
             findUserById: findUserById,
             createUser:createUser,
             findUserByUsername:findUserByUsername,
-            allUsers:allUsers
-            //updateUser:updateUser,
-            //deleteUser:deleteUser
+            allUsers:allUsers,
+            updateUser:updateUser,
+            deleteUser:deleteUser
 
         };
         return api;
+
+
+
 
 
         function allUsers() {
@@ -54,27 +57,15 @@
         }
 
 
+        function deleteUser(uid) {
+            var url ="/api/user/" + uid;
+            $http.delete(url);
+        }
 
+        function updateUser(user) {
+            var url ="/api/user/" + user._id;
+            $http.put(url, user);
+        }
 
-        /////////////////////////////////////////////////////////////////
-
-        /*
-         function deleteUser(uid) {
-         for (var u in users) {
-         if(users[u]._id === uid) {
-         users.splice(u, 1);
-         }
-         }
-         }
-
-
-         function updateUser(user) {
-         for (var u in users) {
-         if(users[u]._id === user._id) {
-         users[u] = user;
-         }
-         }
-         }
-         */
     }
 })();

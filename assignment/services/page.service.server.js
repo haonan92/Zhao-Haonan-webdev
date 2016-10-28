@@ -26,6 +26,36 @@ module.exports = function (app) {
     app.get('/api/pages/allpages', allPages);    //why I change it to api/user/alluser doesn;t work
     app.get('/api/website/:websiteId/page', findAllPagesForWebsite);
     app.get('/api/page/:pageId', findPageById);
+    app.put('/api/page/:pageId', updatePage);
+    app.delete('/api/page/:pageId', deletePage);
+
+
+    function deletePage(req, res) {
+        console.log("hello from delete page");
+        var pid = req.params.pageId;
+        for(var p in pages) {
+            if(pages[p]._id == pid) {
+                pages.splice(p,1);
+            }
+        }
+        res.send(200);
+    }
+
+
+
+    function updatePage(req, res) {
+        console.log("hello from updatePage");
+        var updatedpage = req.body;
+        console.log(updatedpage);
+        var pid = parseInt(req.params.pageId);
+        for(var p in pages) {
+            if(pages[p]._id == pid) {
+                pages[p] = updatedpage;
+            }
+        }
+        res.send(200); // ok successful
+    }
+
 
     function createPage(req, res) {
         console.log("hello from createpageqqqqqqqqqqqqqqq");

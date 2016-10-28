@@ -11,7 +11,7 @@
 <div class="container-fluid contentPadding">
     <ul class="list-group">
         <li ng-repeat= "user in model.users" class="list-group-item">
-            <a>{{user.username}}</a>
+            <a>{{user.username}} /{{user._id}}</a>
             <div class="listConf pull-right">
                 <a ng-click="model.deleteUser(user._id)">
                     <span class="glyphicon glyphicon-trash"></span>

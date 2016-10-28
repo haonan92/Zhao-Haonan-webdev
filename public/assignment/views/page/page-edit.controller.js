@@ -12,8 +12,8 @@
         vm.userId = parseInt($routeParams.uid);
         vm.pageId = parseInt($routeParams.pid);
         vm.websiteId = parseInt($routeParams.wid);
-      //  vm.updatePage = updatePage;
-      //  vm.deletePage =deletePage;
+        vm.updatePage = updatePage;
+        vm.deletePage =deletePage;
 
         function init() {
             var promise = PageService.findPageById(vm.pageId);
@@ -31,19 +31,19 @@
         //svm.pages = PageService.findPageByWebsiteId(vm.websiteId);
 
 
-        /*
+
         function deletePage(pid) {
             PageService.deletePage(pid);
             $location.url("/user/"+vm.userId+"/website/"+vm.websiteId+"/page");
-
         }
 
-        function updatePage(page) {
-            PageService.updatePage(page);
+
+        function updatePage(currentpage) {
+            PageService.updatePage(currentpage);
             $location.url("/user/"+vm.userId+"/website/"+vm.websiteId+"/page");
         }
 
-*/
+
 
 
     }

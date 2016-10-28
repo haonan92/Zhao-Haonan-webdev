@@ -17,7 +17,16 @@
 
 
         function inti() {
-            vm.widgets = WidgetService.findWidgetsForPage(vm.pageId);
+            WidgetService.findWidgetsForPage(vm.pageId)
+                .success(function (wigs) {
+                    if(wigs != '[]') {
+                        vm.widgets = wigs;
+                    }
+                })
+                .error(function () {
+                });
+
+
         }
         inti();
 

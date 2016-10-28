@@ -16,7 +16,34 @@ module.exports = function (app) {
     app.post('/api/user/:userId/website',createWebsite);
     app.get('/api/user/:userId/website', findWebsitesForUser);
     app.get('/api/website/:websiteId', findWebsiteById);
+    app.put('/api/website/:websiteId', updateWebsite);
+    app.delete('/api/website/:websiteId', removeWebsite);
 
+    function removeWebsite(req, res) {
+        console.log("hello from remove web");
+        var wid = req.params.websiteId;
+        for(var w in websites) {
+            if(websites[w]._id == wid) {
+                websites.splice(w,1);
+            }
+        }
+        res.send(200);
+    }
+
+
+
+    function updateWebsite(req, res) {
+        console.log("hello from updateWebsite");
+        var web = req.body;
+        console.log(web);
+        var wid = parseInt(req.params.websiteId);
+        for(var w in websites) {
+            if(websites[w]._id == wid) {
+                websites[w] = web;
+            }
+        }
+        res.send(200); // ok successful
+    }
 
     function findWebsiteById(req,res) {
         console.log("hello from find webby Id");
@@ -36,7 +63,6 @@ module.exports = function (app) {
     function findWebsitesForUser(req, res) {
         console.log("Hello from findallwebforuser");
         var uid = req.params.userId;
-        console.log(uid);
         var result = [];
         for(var w in websites) {
             if(websites[w].uid === parseInt(uid)) {

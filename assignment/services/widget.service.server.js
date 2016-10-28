@@ -28,13 +28,103 @@ module.exports = function (app) {
             "url": "https://youtu.be/PbsTo_JsoD0" },
         { "_id": "789", "widgetType": "HTML", "pageId": 666, "text": "<p>Supreme</p>"}
 
-
     ];
 
 
     app.get('/api/wigis/allwigis', allWigis);    //why I change it to api/user/alluser doesn;t work
+    app.get('/api/page/:pageId/widget',findAllWidgetsForPage);
+    app.get('/api/widget/:widgetId',findWidgetById);
+    app.get('/api/wigitype/:widgetId',findWidgetTypeById);
+    app.post('/api/page/:pageId/widget',createWidget)
+    app.put('/api/widget/:widgetId', updateWidget);
+    app.delete('/api/widget/:widgetId', deleteWidget);
 
 
+
+    function deleteWidget(req, res) {
+        console.log("hello from delete widget");
+        var wigid = req.params.widgetId;
+        for(var w in widgets) {
+            if(widgets[w]._id == wigid) {
+                widgets.splice(w,1);
+            }
+        }
+        res.send(200);
+
+    }
+
+    function updateWidget(req, res) {
+        console.log("hello from updateWidget");
+        var updatedwidget = req.body;
+        console.log(updatedwidget);
+        var wigid = req.params.widgetId;
+        console.log(wigid);
+        for(var w in widgets) {
+            if(widgets[w]._id == wigid) {
+                widgets[w] = updatedwidget;
+            }
+        }
+        res.send(200); // ok successful
+    }
+
+
+
+    //function createWidget
+    function createWidget(req, res) {
+        console.log("hello from createWidget");
+
+        var widget = req.body;
+        console.log(widget);
+        widgets.push(widget);
+        res.send(widget);
+
+    }
+
+    //function find wigi type for a widgit
+    function findWidgetTypeById(req, res) {
+        console.log("hello from find widget type");
+        var wigid = req.params.widgetId;
+        console.log(wigid);                     //undefined
+        for (var w in widgets) {
+            if (widgets[w]._id === wigid) {
+                res.send(widgets[w].widgetType);
+                return;
+            }
+        }
+        //if does not find
+        res.send('0');
+    }
+
+
+    //function find widget by id
+    function findWidgetById(req, res) {
+        console.log("hello from find widget by id");
+        var wigid = req.params.widgetId;
+        console.log(wigid);                     //undefined
+        for (var w in widgets) {
+            if (widgets[w]._id === wigid) {
+                res.send(widgets[w]);
+                return;
+            }
+        }
+        //if does not find
+        res.send('0');
+    }
+
+    //function find all widgetse for page
+    function findAllWidgetsForPage(req, res) {
+        console.log("Hello from findAllWidgetsForPage");
+        var pid = req.params.pageId;
+        console.log(pid);
+        var result = [];
+        for(var w in widgets) {
+            if(widgets[w].pageId=== parseInt(pid)) {
+                result.push(widgets[w]);
+            }
+        }
+        res.send(result);
+        return;
+    }
 
     //testing purpose
     function allWigis(req, res) {

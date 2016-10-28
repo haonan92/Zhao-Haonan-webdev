@@ -37,19 +37,13 @@
 
 
         function removeWebsite(wid) {
-            for (var w in websites) {
-                if(websites[w]._id === wid) {
-                    websites.splice(w, 1);
-                }
-            }
+            var url ="/api/website/" + wid;
+            $http.delete(url);
         }
         
         function updateWebsite(website) {
-            for (var w in websites) {
-                if(websites[w]._id === website._id) {
-                    websites[w] = website;
-                }
-            }
+            var url ="/api/website/"+ website._id;
+            $http.put(url, website);
         }
 
     }

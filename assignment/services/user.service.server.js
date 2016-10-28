@@ -17,11 +17,33 @@ module.exports = function (app) {
         app.post('/api/user',createUser);
         app.get('/api/users/alluser', allUsers);    //why I change it to api/user/alluser doesn;t work
         app.put('/api/user/:uid',updateUser);
+        app.delete('/api/user/:uid',deleteUser);
 
 
 
-    function updateUser() {
-        console.log("hello update");
+    function deleteUser(req, res) {
+        var uid = req.params.uid;
+
+        for(var u in users) {
+            if(users[u]._id == uid) {
+            users.splice(u,1);
+            }
+        }
+        res.send(200);
+    }
+
+
+    function updateUser(req, res) {
+        console.log("hello from user update");
+        var user = req.body;
+        var uid = req.params['uid'];
+        for(var u in users) {
+            if(users[u]._id == uid) {
+                users[u] = user;
+            }
+        }
+        res.send(200); // ok successful
+
     }
 
 

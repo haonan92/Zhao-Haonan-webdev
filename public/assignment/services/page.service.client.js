@@ -9,8 +9,8 @@
             findAllPagesForWebsite:findAllPagesForWebsite,
             createPage:createPage,
             findPageById:findPageById,
-           // updatePage:updatePage,
-           // deletePage:deletePage
+            updatePage:updatePage,
+            deletePage:deletePage
         };
 
         return api;
@@ -40,23 +40,18 @@
         }
 
 
-/*
+
         function deletePage(pid) {
-            for (var p in pages) {
-                if(pages[p]._id === pid) {
-                    pages.splice(p, 1);
-                }
-            }
+            var url ="/api/page/" + pid;
+            $http.delete(url);
         }
 
+
         function updatePage(page) {
-            for (var p in pages) {
-                if(pages[p]._id === page._id) {
-                    pages[p] = page;
-                }
-            }
+            var url ="/api/page/"+ page._id;
+            $http.put(url, page);
         }
-        */
+
 
     }
 })();

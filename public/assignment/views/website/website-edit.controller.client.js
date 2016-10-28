@@ -7,8 +7,8 @@
         var vm = this;
         var websiteId = parseInt($routeParams.wid);
         vm.userId = $routeParams.uid;
-        //vm.updateWebsite = updateWebsite;
-        //vm.removeWebsite = removeWebsite;
+        vm.updateWebsite = updateWebsite;
+        vm.removeWebsite = removeWebsite;
         function init() {
 
             var promise = WebsiteService.findWebsiteById(websiteId);
@@ -24,7 +24,6 @@
 
             WebsiteService.findWebsitesForUser(vm.userId)
                 .success(function (webs) {
-                    console.log(webs);
                     if(webs != '[]') {
                         vm.websites = webs;
                     }
@@ -34,20 +33,22 @@
         }
         init();
 
-        /*
 
-        function updateWebsite(website) {
-            WebsiteService.updateWebsite(website);
+
+
+
+        function updateWebsite() {
+            WebsiteService.updateWebsite(vm.website);
             $location.url("/user/"+ vm.userId +"/website");
 
         }
 
-        function removeWebsite(wid) {
-            WebsiteService.removeWebsite(wid);
-            $location.url("/user/"+ vm.userId +"/website");
 
+        function removeWebsite(currentWebId) {
+            WebsiteService.removeWebsite(currentWebId);
+            $location.url("/user/"+ vm.userId +"/website");
         }
-        */
+
         
     }
 })();
