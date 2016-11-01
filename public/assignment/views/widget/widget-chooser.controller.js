@@ -35,7 +35,7 @@
 
 
         function createWidget(pid, widget) {
-            widget._id = (new Date()).getTime().toString();
+            widget._id = (new Date()).getTime();
             widget.pageId = pid;
             if(widget.widgetType == 'HEADER' && widget.size == null) {
                 widget.size = 2;

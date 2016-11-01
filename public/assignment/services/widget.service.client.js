@@ -33,6 +33,7 @@
 
 
         function updateWidget(widget) {
+            console.log("Widget To Update ", widget);
             var url ="/api/widget/"+widget._id;
             $http.put(url,widget);
         }
