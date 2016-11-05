@@ -38,9 +38,14 @@
                             ng-src="{{model.checkSafeYouTubeUrl(widget.url)}}"
                             frameborder="0" allowfullscreen></iframe>
                 </div>
+
+
                 <div ng-switch-when="IMAGE">
-                    <img src="{{widget.url}}">
+                    <img ng-src="{{widget.url}}"
+                         width="{{widget.width}}"/>
                 </div>
+
+
                 <div ng-switch-when="HTML" ng-bind-html="model.checkSafeHtml(widget.text)">
                 </div>
             </div>

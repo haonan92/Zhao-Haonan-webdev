@@ -1,6 +1,7 @@
 
-<script src="widget-list.controller.js"></script>
+<div ng-if ="model.wigtype">
 <div ng-include="'views/widget/widget-'+ model.wigtype +'-editor.html'"></div>
+</div>
 {{model.wigtype}}
 {{model.widget}}
 

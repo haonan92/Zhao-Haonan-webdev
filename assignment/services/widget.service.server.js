@@ -6,6 +6,10 @@
 module.exports = function (app) {
 //    console.log("hello from web service server");
 
+
+    var multer = require('multer'); // npm install multer --save
+    var upload = multer({ dest: __dirname+'/../../public/assignment/uploads'});
+
     var widgets = [
         { "_id": 123, "widgetType": "HEADER", "pageId": 555, "size": 2, "text": "GIZMODO"},
         { "_id": 234, "widgetType": "HEADER", "pageId": 555, "size": 4, "text": "Lorem ipsum"},
@@ -38,11 +42,42 @@ module.exports = function (app) {
     app.post('/api/page/:pageId/widget',createWidget)
     app.put('/api/widget/:widgetId', updateWidget);
     app.delete('/api/widget/:widgetId', deleteWidget);
+    app.post ("/api/upload", upload.single('myFile'), uploadImage);
+
+
+
+
+    function uploadImage(req, res) {
+        var userId = req.body.userId;
+        var websiteId = req.body.websiteId;
+        var pageId = req.body.pageId;
+        var widgetId = req.body.widgetId;
+        var width = req.body.width;
+        var myFile = req.file;
+        //console.log(req.file);
+
+            var originalname = myFile.originalname; // file name on user's computer
+            var filename = myFile.filename;     // new file name in upload folder
+            var path = myFile.path;         // full path of uploaded file
+            var destination = myFile.destination;  // folder where file is saved to
+            var size = myFile.size;
+            var mimetype = myFile.mimetype;
+
+            for (var w in widgets) {
+                if (widgets[w]._id === parseInt(widgetId)) {
+                    console.log("found!");
+                    widgets[w].url = "/uploads/" + filename;
+                }
+            }
+            //console.log(myFile);
+            //res.send(200);
+            res.redirect("/assignment/#/user/" + userId + "/website/" + websiteId + "/page/" + pageId + "/widget/" + widgetId);
+        }
+
 
 
 
     function deleteWidget(req, res) {
-        console.log("hello from delete widget");
         var wigid = parseInt(req.params.widgetId);
         for(var w in widgets) {
             if(widgets[w]._id == wigid) {
@@ -54,11 +89,10 @@ module.exports = function (app) {
     }
 
     function updateWidget(req, res) {
-        console.log("hello from updateWidget");
         var updatedwidget = req.body;
-        console.log(updatedwidget);
+        //console.log(updatedwidget);
         var wigid = parseInt(req.params.widgetId);
-        console.log(wigid);
+        //console.log(wigid);
         for(var w in widgets) {
             if(widgets[w]._id == wigid) {
                 widgets[w] = updatedwidget;
@@ -71,10 +105,8 @@ module.exports = function (app) {
 
     //function createWidget
     function createWidget(req, res) {
-        console.log("hello from createWidget");
-
         var widget = req.body;
-        console.log(widget);
+        //console.log(widget);
         widgets.push(widget);
         res.send(widget);
 
@@ -82,9 +114,8 @@ module.exports = function (app) {
 
     //function find wigi type for a widgit
     function findWidgetTypeById(req, res) {
-        console.log("hello from find widget type");
         var wigid = parseInt(req.params.widgetId);
-        console.log(wigid);                     //undefined
+        //console.log(wigid);                     //undefined
         for (var w in widgets) {
             if (widgets[w]._id === wigid) {
                 res.send(widgets[w].widgetType);
@@ -98,9 +129,8 @@ module.exports = function (app) {
 
     //function find widget by id
     function findWidgetById(req, res) {
-        console.log("hello from find widget by id");
         var wigid = parseInt(req.params.widgetId);
-        console.log(wigid);                     //undefined
+        //console.log(wigid);                     //undefined
         for (var w in widgets) {
             if (widgets[w]._id === wigid) {
                 res.send(widgets[w]);
@@ -113,9 +143,8 @@ module.exports = function (app) {
 
     //function find all widgetse for page
     function findAllWidgetsForPage(req, res) {
-        console.log("Hello from findAllWidgetsForPage");
         var pid = req.params.pageId;
-        console.log(pid);
+        //console.log(pid);
         var result = [];
         for(var w in widgets) {
             if(widgets[w].pageId=== parseInt(pid)) {

@@ -16,19 +16,14 @@
         vm.checkSafeYouTubeUrl = checkSafeYouTubeUrl;
 
 
-        function inti() {
+        function init() {
             WidgetService.findWidgetsForPage(vm.pageId)
-                .success(function (wigs) {
-                    if(wigs != '[]') {
-                        vm.widgets = wigs;
-                    }
-                })
-                .error(function () {
+                .then(function (response) {
+                    vm.widgets = response.data;
                 });
 
-
-        }
-        inti();
+        };
+        init();
 
 
         function checkSafeHtml(html) {
