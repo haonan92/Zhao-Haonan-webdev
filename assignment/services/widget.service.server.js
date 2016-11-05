@@ -66,7 +66,7 @@ module.exports = function (app) {
             for (var w in widgets) {
                 if (widgets[w]._id === parseInt(widgetId)) {
                     console.log("found!");
-                    widgets[w].url = "/uploads/" + filename;
+                    widgets[w].url = "/assignment/uploads/" + filename;
                 }
             }
             //console.log(myFile);
