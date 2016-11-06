@@ -21,6 +21,8 @@
                 .then(function (response) {
                     vm.widgets = response.data;
                 });
+            var allWidgets = $(".wamSortable").sortable();
+            console.log(allWidgets);
 
         };
         init();
