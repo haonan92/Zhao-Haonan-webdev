@@ -43,7 +43,28 @@ module.exports = function (app) {
     app.put('/api/widget/:widgetId', updateWidget);
     app.delete('/api/widget/:widgetId', deleteWidget);
     app.post ("/api/upload", upload.single('myFile'), uploadImage);
+    app.put("/api/page/:pageId/widget", reorderWidget);
 
+    function reorderWidget(req, res) {
+        var pageId = req.params.pageId;
+        var start = req.query["start"];
+        var end = req.query["end"];
+        if (start && end) {
+            console.log(start + "    " + end);
+            widgetModel
+                .reorderWidget(start, end, pageId)
+                .then(function (widgets) {
+                    res.json(widgets);
+                }, function (error) {
+                    res.status(404).send(error);
+                });
+        }
+        else {
+            console.log("can't get start and end");
+        }
+
+
+    }
 
 
 

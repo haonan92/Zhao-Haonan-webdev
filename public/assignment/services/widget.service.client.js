@@ -14,10 +14,16 @@
             createWidget:createWidget,
             updateWidget:updateWidget,
             deleteWidget:deleteWidget,
-            findWidgetTypeById:findWidgetTypeById
+            findWidgetTypeById:findWidgetTypeById,
+            sortWidget:sortWidget
         }
         return api;
 
+
+        function sortWidget(pageId, start, end) {
+            var url = "/api/page/" + pageId + "/widget?start=" + start + "&end=" +end;
+            return $http.put(url);
+        }
 
         function findWidgetTypeById(wid) {
             var url = '/api/wigitype/'+wid;

@@ -21,8 +21,8 @@
                 .then(function (response) {
                     vm.widgets = response.data;
                 });
-            var allWidgets = $(".wamSortable").sortable();
-            console.log(allWidgets);
+            //var allWidgets = $(".wamSortable").sortable();
+            //console.log(allWidgets);
 
         };
         init();
@@ -32,6 +32,16 @@
             return $sce.trustAsHtml(html);
         }
 
+
+        function sortWidget(start, end) {
+            WidgetService.sortWidget(vm.pageId, start, end)
+                .then(function (response) {
+                    vm.widgets = response.data;
+                }, function(error) {
+                    vm.error = error.data;
+                })
+
+        }
 
         function checkSafeYouTubeUrl(url) {
             var parts = url.split('/');
