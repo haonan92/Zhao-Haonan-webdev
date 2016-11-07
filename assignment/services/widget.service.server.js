@@ -51,13 +51,6 @@ module.exports = function (app) {
         var end = req.query["end"];
         if (start && end) {
             console.log(start + "    " + end);
-            widgetModel
-                .reorderWidget(start, end, pageId)
-                .then(function (widgets) {
-                    res.json(widgets);
-                }, function (error) {
-                    res.status(404).send(error);
-                });
         }
         else {
             console.log("can't get start and end");
