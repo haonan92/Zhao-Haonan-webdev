@@ -8,10 +8,10 @@
     function WidgeChooserController($routeParams, WidgetService, $location) {
         var vm = this;
 
-        vm.userId = parseInt($routeParams['uid']);
-        vm.websiteId = parseInt($routeParams['wid']);
-        vm.pageId = parseInt($routeParams['pid']);
-        vm.wigetId = parseInt($routeParams['wgid']);
+        vm.userId = $routeParams['uid'];
+        vm.websiteId = $routeParams['wid'];
+        vm.pageId = $routeParams['pid'];
+        vm.wigetId = $routeParams['wgid'];
 
 
         vm.createWidget = createWidget;
@@ -35,14 +35,18 @@
 
 
         function createWidget(pid, widget) {
-            widget._id = (new Date()).getTime();
             widget.pageId = pid;
             if(widget.widgetType == 'HEADER' && widget.size == null) {
                 widget.size = 2;
             }
+            if(widget.widgetType == 'TEXT') {
+                widget.rows = 2;
+            }
             WidgetService
                 .createWidget(widget)
-                .success(function () {
+                .success(function (widget) {
+                    console.log(widget);
+                    console.log(widget._id);
                     $location.url("/user/" + vm.userId + "/website/" + vm.websiteId + "/page/" + vm.pageId + "/widget/" + widget._id);
 
                 })

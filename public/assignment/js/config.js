@@ -88,6 +88,11 @@
                 controllerAs: "model"
             })
 
+            .when("/user/:uid/website/:wid/page/:pid/widget/:wgid/flicker", {
+                templateUrl: 'views/widget/widget-flickr-search.view.client.html',
+                controller:'FlickrController',
+                controllerAs:"model"
+            })
             .otherwise({
                 redirectTo:"/login"
             }

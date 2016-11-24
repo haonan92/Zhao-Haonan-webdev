@@ -42,7 +42,7 @@
         init();
 
         function createWebsite(website) {
-            website.uid = parseInt(vm.userId);
+            website.uid = vm.userId;
             WebsiteService
             .createWebsite(website)
                 .success(function (website) {

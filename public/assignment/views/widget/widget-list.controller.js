@@ -8,40 +8,40 @@
     function WidgeListController($routeParams, WidgetService, $sce) {
         var vm = this;
 
-        vm.userId = parseInt($routeParams['uid']);
-        vm.websiteId = parseInt($routeParams['wid']);
-        vm.pageId = parseInt($routeParams['pid']);
-        vm.wgid = parseInt($routeParams['wgid']);
+        vm.userId = $routeParams['uid'];
+        vm.websiteId = $routeParams['wid'];
+        vm.pageId = $routeParams['pid'];
+        vm.wgid = $routeParams['wgid'];
         vm.checkSafeHtml = checkSafeHtml;
         vm.checkSafeYouTubeUrl = checkSafeYouTubeUrl;
+        vm.sort = sort;
 
 
         function init() {
             WidgetService.findWidgetsForPage(vm.pageId)
-                .then(function (response) {
-                    vm.widgets = response.data;
-                });
-            //var allWidgets = $(".wamSortable").sortable();
-            //console.log(allWidgets);
-
+                .success(function (widgetList) {
+                    vm.widgets = widgetList;
+                })
+            $(".wam-widgets").sortable({
+                axis: 'y'
+            });
         };
         init();
 
+
+        function sort(start, end) {
+            WidgetService
+                .sortItem(vm.pageId, start, end)
+                .success(function(code){})
+                .catch(function(error){
+                    console.log(error);
+                });
+        }
 
         function checkSafeHtml(html) {
             return $sce.trustAsHtml(html);
         }
 
-
-        function sortWidget(start, end) {
-            WidgetService.sortWidget(vm.pageId, start, end)
-                .then(function (response) {
-                    vm.widgets = response.data;
-                }, function(error) {
-                    vm.error = error.data;
-                })
-
-        }
 
         function checkSafeYouTubeUrl(url) {
             var parts = url.split('/');
@@ -52,6 +52,4 @@
         }
 
     }
-
-
 })();

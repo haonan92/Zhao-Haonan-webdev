@@ -3,7 +3,7 @@
  */
 
 
-module.exports = function (app) {
+module.exports = function (app,model) {
 
     var pages = [
         { "_id": 111, "name": "Post 1", "websiteId": 1000, "description": "Lorem1" },
@@ -31,69 +31,97 @@ module.exports = function (app) {
 
 
     function deletePage(req, res) {
-        console.log("hello from delete page");
-        var pid = parseInt(req.params.pageId);
-        for(var p in pages) {
-            if(pages[p]._id == pid) {
-                pages.splice(p,1);
-            }
-        }
-        res.send(200);
+        var pageId = req.params.pageId;
+        model
+            .pageModel
+            .deletePage(pageId)
+            .then(
+                function(status){
+                    res.sendStatus(200);
+                },
+                function(error){
+                    res.sendStatus(400).send(error);
+                }
+            );
     }
 
 
 
     function updatePage(req, res) {
-        console.log("hello from updatePage");
-        var updatedpage = req.body;
-        console.log(updatedpage);
-        var pid = parseInt(req.params.pageId);
-        for(var p in pages) {
-            if(pages[p]._id == pid) {
-                pages[p] = updatedpage;
-            }
-        }
-        res.send(200); // ok successful
+        var page = req.body;
+        var pageId = req.params.pageId;
+        model
+            .pageModel
+            .updatePage(pageId, page)
+            .then(
+                function(status){
+                    res.sendStatus(200);
+                },
+                function(error){
+                    res.sendStatus(400).send(error);
+                }
+            );
     }
 
 
     function createPage(req, res) {
-        console.log("hello from createpageqqqqqqqqqqqqqqq");
         var page = req.body;
-        page._id = (new Date()).getTime();
-        pages.push(page);
-        res.send(page);
+        var wid = req.params.websiteId;
+        model
+            .pageModel
+            .createPage(wid, page)
+            .then(
+                function(newPage){
+                    res.send(newPage);
+
+                },
+                function(error){
+                    res.sendStatus(400).send(error);
+                }
+            );
     }
 
     //finid page by id
     function findPageById(req,res) {
-        console.log("hello from find page Id");
-        var pid = parseInt(req.params.pageId);
-        console.log(pid);                     //undefined
-        for (var p in pages) {
-            if (pages[p]._id === pid) {
-                res.send(pages[p]);
-                return;
-            }
-        }
-        //if does not find
-        res.send('0');
+        var pageId = req.params.pageId;
+        model
+            .pageModel
+            .findPageById(pageId)
+            .then(
+                function(page){
+                    if(page){
+                        res.send(page);
+                    }
+                    else{
+                        res.send('0');
+                    }
+                },
+                function(error){
+                    res.sendStatus(400).send(error);
+                }
+            );
     }
 
 
     //findallPagesforwebsite
     function findAllPagesForWebsite(req, res) {
-        console.log("Hello from find all page for website");
         var wid = req.params.websiteId;
-        console.log(wid);
-        var result = [];
-        for(var p in pages) {
-            if(pages[p].websiteId === parseInt(wid)) {
-                result.push(pages[p]);
-            }
-        }
-        res.send(result);
-        return;
+        model
+            .pageModel
+            .findAllPagesForWebsite(wid)
+            .then(
+                function(pages){
+                    if(pages){
+                        res.json(pages);
+                    }
+                    else{
+                        res.send('0');
+                    }
+                },
+                function(error){
+                    res.sendStatus(400).send(error);
+                }
+            );
     }
 
     //testing purpose

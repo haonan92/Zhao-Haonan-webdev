@@ -15,13 +15,21 @@
             updateWidget:updateWidget,
             deleteWidget:deleteWidget,
             findWidgetTypeById:findWidgetTypeById,
-            sortWidget:sortWidget
+            sortItem: sortItem,
+            selectFlickr:selectFlickr
         }
         return api;
 
+        function selectFlickr(widgetId, photo) {
+            var url = '/api/'+widgetId+'/flickr';
+            var content = {photo: photo};
+            console.log(content);
+            return $http.put(url, content);
 
-        function sortWidget(pageId, start, end) {
-            var url = "/api/page/" + pageId + "/widget?start=" + start + "&end=" +end;
+        }
+
+        function sortItem(pageId, start, end){
+            var url = '/page/'+pageId+'/widget?start=' + start + '&end=' + end;
             return $http.put(url);
         }
 
@@ -46,11 +54,8 @@
 
 
 
-        function createWidget(pid) {
-            return $http.post('/api/page/'+pid.pageId+'/widget', pid);
-
-
-
+        function createWidget(widget) {
+            return $http.post('/api/page/'+ widget.pageId + '/widget', widget);
         }
 
 

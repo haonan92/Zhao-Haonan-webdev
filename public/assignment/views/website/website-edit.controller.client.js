@@ -5,7 +5,7 @@
 
     function WebsiteEditController($routeParams, WebsiteService,$location) {
         var vm = this;
-        var websiteId = parseInt($routeParams.wid);
+        var websiteId = $routeParams.wid;
         vm.userId = $routeParams.uid;
         vm.updateWebsite = updateWebsite;
         vm.removeWebsite = removeWebsite;

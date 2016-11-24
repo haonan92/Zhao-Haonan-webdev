@@ -9,9 +9,9 @@
 
     function PageEditController($routeParams, PageService, $location) {
         var vm = this;
-        vm.userId = parseInt($routeParams.uid);
-        vm.pageId = parseInt($routeParams.pid);
-        vm.websiteId = parseInt($routeParams.wid);
+        vm.userId = $routeParams.uid;
+        vm.pageId = $routeParams.pid;
+        vm.websiteId = $routeParams.wid;
         vm.updatePage = updatePage;
         vm.deletePage =deletePage;
 

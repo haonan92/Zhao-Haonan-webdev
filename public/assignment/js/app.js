@@ -1,4 +1,4 @@
 (function (){ // IIFE
     angular
-        .module("WebAppMaker", ["ngRoute", "wamDirective"]);
+        .module("WebAppMaker", ["ngRoute", "wamDirective", "textAngular"]);
 })();

@@ -13,16 +13,12 @@
 
 
         function init() {
-            var promise = UserService.findUserById(userId);
-            promise
-                .success(function (newuser) {
-                    if(newuser != '0') {
-                        vm.user = newuser;
-                    }
+            UserService.findUserById(userId)
+                .then(function (response) {
+                    console.log(response);
+                    console.log(response.data);
+                    vm.user=response.data;
                 })
-                .error(function () {
-
-                });
 
             //return all users for the database page
             UserService.allUsers()

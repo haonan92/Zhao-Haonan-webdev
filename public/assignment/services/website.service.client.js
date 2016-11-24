@@ -17,11 +17,11 @@
 
 
         function createWebsite(website) {
-            var newweb = {
+            var newWeb = {
                 name:website.name,
                 uid:website.uid
             }
-            return $http.post('/api/user/newweb.uid/website', newweb);
+            return $http.post('/api/user/'+ newWeb.uid + '/website', newWeb);
         }
 
         function findWebsiteById(wid) {
@@ -30,6 +30,7 @@
         }
 
         function findWebsitesForUser(uid) {
+            console.log("----------------FindWebsiteForUser----------------------")
             var url = '/api/user/'+uid+'/website';
             return $http.get(url);
         }

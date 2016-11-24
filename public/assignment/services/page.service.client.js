@@ -18,14 +18,14 @@
 
         
         function findPageById(pid) {
-            var url = '/api/page/'+parseInt(pid);
+            var url = '/api/page/'+pid;
             return $http.get(url);
         }
 
 
         //function find pages by website Id
         function findAllPagesForWebsite(wid) {
-            var url = '/api/website/'+parseInt(wid)+'/page';
+            var url = '/api/website/'+wid+'/page';
             return $http.get(url);
         }
 

@@ -18,13 +18,11 @@
 
 <div class="container-fluid contentPadding">
     <form>
-        <div class="form-group">
-            <label for="name">Name</label>
-            <input type="text" class="form-control" id="name">
-        </div>
-        <div class="form-group">
-            <label for="text">Text</label>
-            <input ng-model = "model.widget.text" type="text" class="form-control" id="text">
+        <div ng-model="model.widget.text"
+             text-angular
+             ta-toolbar="[['h1','h2','h3'],['bold','italics','underline','strikeThrough'],
+        ['ul','ol'],['justifyLeft','justifyCenter','justifyRight','justifyFull'],
+        ['indent','outdent'],['html']]">
         </div>
         <a ng-click="model.deleteWidget(widget)" class="btn btn-danger btn-block">Delete</a>
     </form>

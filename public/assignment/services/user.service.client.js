@@ -15,14 +15,10 @@
             findUserByUsername:findUserByUsername,
             allUsers:allUsers,
             updateUser:updateUser,
-            deleteUser:deleteUser
+            deleteUser:deleteUser,
 
         };
         return api;
-
-
-
-
 
         function allUsers() {
             var url = '/api/users/alluser';

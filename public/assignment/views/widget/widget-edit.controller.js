@@ -8,52 +8,28 @@
     function WidgeEditController($routeParams, WidgetService, $location) {
         var vm = this;
 
-        vm.userId = parseInt($routeParams['uid']);
-        vm.websiteId = parseInt($routeParams['wid']);
-        vm.pageId = parseInt($routeParams['pid']);
-        vm.wigetId = parseInt($routeParams['wgid']);
+        vm.userId = $routeParams['uid'];
+        vm.websiteId = $routeParams['wid'];
+        vm.pageId = $routeParams['pid'];
+        vm.wigetId = $routeParams['wgid'];
         vm.updateWidget =updateWidget;
         vm.deleteWidget = deleteWidget;
 
 
-        function inti() {
-            var promise = WidgetService.findWidgetbyId(vm.wigetId);
-            promise
+        function init() {
+            WidgetService.findWidgetbyId(vm.wigetId)
                 .success(function (wig) {
                     if(wig != '0') {
                         vm.widget = wig;
+                        vm.wigtype = wig.widgetType.toLowerCase();
                     }
                 })
                 .error(function () {
 
                 });
-
-            WidgetService.findWidgetTypeById(vm.wigetId)
-                .success(function (wtype) {
-                    if(wtype != '0') {
-                        vm.wigtype = wtype.toLowerCase();
-                    }
-                })
-                .error(function () {
-
-                });
-
-
-            WidgetService.findWidgetsForPage(vm.pageId)
-                .success(function (wigs) {
-                    if(wigs != '[]') {
-                        vm.widgets = wigs;
-                    }
-                })
-                .error(function () {
-                });
-
-
-           // vm.widgets = WidgetService.findWidgetsForPage(vm.pageId);
-
         }
 
-        inti();
+        init();
 
 
         function deleteWidget(wgid) {
@@ -66,6 +42,7 @@
 
         function updateWidget(currentwidget) {
             currentwidget = vm.widget;
+            console.log(currentwidget);
             var updated = WidgetService.updateWidget(currentwidget);
             console.log(updated);
             $location.url("/user/"+vm.userId+"/website/"+vm.websiteId+"/page/"+vm.pageId+"/widget");

@@ -10,11 +10,11 @@
         var vm = this;
         vm.login = login;
 
-        function login (username, password) {
-            var promise = UserService.findUserByCredentials(username, password);
-            promise
-                .success(function (user) {
-                    if(user === '0') //0 means we did not find the user
+        function login (username,password) {
+           UserService
+               .findUserByCredentials(username, password)
+               .success(function (user) {
+                    if(user === '0')
                     {
                         vm.error = "No such user";
                     }
@@ -22,8 +22,8 @@
                         $location.url("/user/" + user._id);
                     }
                 })
-                .error(function (bbb) {
-                    console.log(bbb)
+                .error(function (user) {
+                    console.log("error from login");
                 });
 
 
