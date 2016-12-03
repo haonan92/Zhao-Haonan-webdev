@@ -38,6 +38,10 @@
 
 
         function updateWebsite() {
+            if(!vm.website.name) {
+                vm.error = "Website name is required";
+                return;
+            }
             WebsiteService.updateWebsite(vm.website);
             $location.url("/user/"+ vm.userId +"/website");
 

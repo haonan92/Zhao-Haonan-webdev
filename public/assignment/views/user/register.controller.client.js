@@ -16,27 +16,17 @@
                 vm.error = "Your passwords don't match";
                 return;
             }
-
-            var promise = UserService.findUserByUsername(user.username);
-            promise
-                .success(function(newuser){
-                    if(newuser != '0') {
-                        vm.error = "Username exits, please change another one";
-                    }
-                    else {
-                    UserService
-                        .createUser(user)
-                        .success(function (user) {
-                            $location.url("/user/" + user._id);
-
-                        })
-                        .error(function () {
-
-                        })
-                    }
-                });
-
-
+            else {
+            UserService
+                .register(user.username, user.password)
+                .success(function (user) {
+                    console.log(user);
+                    $location.url("/user/" + user._id);
+                 })
+                .error(function (err) {
+                    vm.error = err;
+                })
+            }
         }
     }
 })();

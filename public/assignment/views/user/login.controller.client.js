@@ -12,7 +12,8 @@
 
         function login (username,password) {
            UserService
-               .findUserByCredentials(username, password)
+               .login(username, password)
+               //.findUserByCredentials(username, password)
                .success(function (user) {
                     if(user === '0')
                     {
@@ -23,7 +24,7 @@
                     }
                 })
                 .error(function (user) {
-                    console.log("error from login");
+                    vm.error = "Please Check Your Username and Password";
                 });
 
 

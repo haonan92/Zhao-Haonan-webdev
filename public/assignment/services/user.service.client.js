@@ -16,9 +16,44 @@
             allUsers:allUsers,
             updateUser:updateUser,
             deleteUser:deleteUser,
+            login:login,
+            checkLogin:checkLogin,
+            logout:logout,
+            register:register
 
         };
         return api;
+
+
+
+        function register(username, password) {
+            var newuser = {
+                username:username,
+                password:password,
+            }
+            return $http.post('/api/register', newuser);
+        }
+
+
+        function logout() {
+            return $http.post("/api/logout");
+        }
+
+
+        function checkLogin() {
+            return $http.post("/api/checkLogin");
+        }
+        
+        
+        function login(username, password) {
+            console.log("------from client login-----");
+            var user = {
+                username: username,
+                password: password
+            };
+           return $http.post("/api/login", user);
+        }
+
 
         function allUsers() {
             var url = '/api/users/alluser';

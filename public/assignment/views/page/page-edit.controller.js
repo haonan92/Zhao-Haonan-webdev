@@ -39,12 +39,13 @@
 
 
         function updatePage(currentpage) {
+            if(!currentpage.name) {
+                vm.error = "Page name is required";
+                return;
+            }
             PageService.updatePage(currentpage);
             $location.url("/user/"+vm.userId+"/website/"+vm.websiteId+"/page");
         }
-
-
-
 
     }
 })();

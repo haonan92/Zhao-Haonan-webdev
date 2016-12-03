@@ -17,10 +17,23 @@
                 controller:"RegisterController",
                 controllerAs: "model",
             })
+
+            .when('/facebook', {
+                templateUrl: 'views/user/facebook.view.client.html',
+                controller: 'ProfileController',
+                controllerAs: 'profile',
+                resolve: {
+                    checkLogin: checkLogin
+                }
+            })
+
             .when("/user/:uid", {
                 templateUrl: "views/user/profile.view.client.html",
                 controller:"ProfileController",
-                controllerAs:"model"
+                controllerAs:"model",
+                resolve: {
+                    checkLogin: checkLogin
+                }
             })
 
             .when("/user/:uid/database", {
@@ -95,7 +108,26 @@
             })
             .otherwise({
                 redirectTo:"/login"
-            }
-            );
+            });
+        
+        function checkLogin($q, UserService, $location, $rootScope) {
+            var deferred = $q.defer();
+            UserService
+                .checkLogin()
+                .success(
+                    function (user) {
+                        if(user != '0') {
+                            $rootScope.currentUser = user;
+                            deferred.resolve();
+                        }
+                        else {
+                            $rootScope.currentUser = null;
+                            deferred.reject();
+                            $location.url("/login")
+                        }
+                    }
+                );
+            return deferred.promise;
+        }
     }
 })();

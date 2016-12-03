@@ -14,8 +14,15 @@ module.exports = function() {
         findUserByCredentials:findUserByCredentials,
         removeUser:removeUser,
         findUserByUsername:findUserByUsername,
+        findFacebookUser:findFacebookUser
     }
     return api;
+
+
+    function findFacebookUser(facebookId) {
+        return UserModel.findOne({'facebook.id': facebookId});
+
+    }
 
 
     function findUserByUsername(username) {

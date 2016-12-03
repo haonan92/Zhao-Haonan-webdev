@@ -42,7 +42,10 @@
 
         function updateWidget(currentwidget) {
             currentwidget = vm.widget;
-            console.log(currentwidget);
+            if(!currentwidget.name) {
+                vm.error = "Widget name is required";
+                return;
+            }
             var updated = WidgetService.updateWidget(currentwidget);
             console.log(updated);
             $location.url("/user/"+vm.userId+"/website/"+vm.websiteId+"/page/"+vm.pageId+"/widget");

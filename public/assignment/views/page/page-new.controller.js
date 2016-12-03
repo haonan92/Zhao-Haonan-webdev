@@ -17,6 +17,12 @@
 
         function createPage(page) {
             page.websiteId = vm.websiteId;
+
+            if(!page.name) {
+                vm.error = "Page name is required";
+                return;
+            }
+
             PageService
                 .createPage(page)
                 .success(function (page) {
@@ -24,7 +30,7 @@
 
                 })
                 .error(function () {
-
+                    console.log("ffffffffffffffff");
                 })
 
         }

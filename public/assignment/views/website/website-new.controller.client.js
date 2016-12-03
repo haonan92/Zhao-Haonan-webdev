@@ -43,6 +43,12 @@
 
         function createWebsite(website) {
             website.uid = vm.userId;
+
+            if(!website.name) {
+                vm.error = "Website name is required";
+                return;
+            }
+
             WebsiteService
             .createWebsite(website)
                 .success(function (website) {

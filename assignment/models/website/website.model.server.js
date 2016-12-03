@@ -19,15 +19,8 @@ module.exports = function() {
     function updateWebsite(websiteId,website) {
         console.log("----------------updateWebsite------------------")
         return WebsiteModel
-            .update(
-                {
-                    _id: websiteId
-                },
-                {
-                    name: website.name,
-                    description: website.description
-                }
-            );
+            .update({_id: websiteId}, {name: website.name,
+                description: website.description});
     }
 
     function findWebsiteById(websiteId) {
